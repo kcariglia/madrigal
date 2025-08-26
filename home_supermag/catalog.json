@@ -1,5 +1,5 @@
 {
-    "HAPI": "3.2",
+    "HAPI": "3.3",
     "catalog": [
         {
             "id": "indices_all",
@@ -106,10 +106,6 @@
             "title": "IAGA ALE (82.50,297.50) baseline_all"
         },
         {
-            "id": "alt/baseline_all/PT1M/XYZ",
-            "title": "IAGA ALT (69.86,22.96) baseline_all"
-        },
-        {
             "id": "ama/baseline_all/PT1M/XYZ",
             "title": "IAGA AMA (28.17,129.33) baseline_all"
         },
@@ -158,16 +154,8 @@
             "title": "IAGA ARC (68.12,214.44) baseline_all"
         },
         {
-            "id": "ark/baseline_all/PT1M/XYZ",
-            "title": "IAGA ARK (64.60,40.50) baseline_all"
-        },
-        {
             "id": "ars/baseline_all/PT1M/XYZ",
             "title": "IAGA ARS (56.43,58.57) baseline_all"
-        },
-        {
-            "id": "asa/baseline_all/PT1M/XYZ",
-            "title": "IAGA ASA (-14.28,170.70) baseline_all"
         },
         {
             "id": "asb/baseline_all/PT1M/XYZ",
@@ -176,10 +164,6 @@
         {
             "id": "asc/baseline_all/PT1M/XYZ",
             "title": "IAGA ASC (-7.95,345.62) baseline_all"
-        },
-        {
-            "id": "ash/baseline_all/PT1M/XYZ",
-            "title": "IAGA ASH (37.95,58.10) baseline_all"
         },
         {
             "id": "asp/baseline_all/PT1M/XYZ",
@@ -192,10 +176,6 @@
         {
             "id": "atu/baseline_all/PT1M/XYZ",
             "title": "IAGA ATU (67.93,306.43) baseline_all"
-        },
-        {
-            "id": "b01/baseline_all/PT1M/XYZ",
-            "title": "IAGA B01 (-64.82,296.52) baseline_all"
         },
         {
             "id": "b02/baseline_all/PT1M/XYZ",
@@ -332,10 +312,6 @@
         {
             "id": "bik/baseline_all/PT1M/XYZ",
             "title": "IAGA BIK (-1.08,136.05) baseline_all"
-        },
-        {
-            "id": "bji/baseline_all/PT1M/XYZ",
-            "title": "IAGA BJI (40.06,116.18) baseline_all"
         },
         {
             "id": "bjn/baseline_all/PT1M/XYZ",
@@ -482,10 +458,6 @@
             "title": "IAGA CER (-33.45,289.40) baseline_all"
         },
         {
-            "id": "cgo/baseline_all/PT1M/XYZ",
-            "title": "IAGA CGO (64.87,212.14) baseline_all"
-        },
-        {
             "id": "chc/baseline_all/PT1M/XYZ",
             "title": "IAGA CHC (64.35,276.00) baseline_all"
         },
@@ -542,10 +514,6 @@
             "title": "IAGA CPS (68.88,180.63) baseline_all"
         },
         {
-            "id": "cpy/baseline_all/PT1M/XYZ",
-            "title": "IAGA CPY (70.20,235.30) baseline_all"
-        },
-        {
             "id": "crk/baseline_all/PT1M/XYZ",
             "title": "IAGA CRK (57.09,357.36) baseline_all"
         },
@@ -568,10 +536,6 @@
         {
             "id": "cul/baseline_all/PT1M/XYZ",
             "title": "IAGA CUL (-30.28,149.58) baseline_all"
-        },
-        {
-            "id": "cwe/baseline_all/PT1M/XYZ",
-            "title": "IAGA CWE (66.17,190.17) baseline_all"
         },
         {
             "id": "cy0/baseline_all/PT1M/XYZ",
@@ -638,10 +602,6 @@
             "title": "IAGA DOU (50.10,4.60) baseline_all"
         },
         {
-            "id": "drb/baseline_all/PT1M/XYZ",
-            "title": "IAGA DRB (-29.48,30.56) baseline_all"
-        },
-        {
             "id": "drv/baseline_all/PT1M/XYZ",
             "title": "IAGA DRV (-66.67,140.01) baseline_all"
         },
@@ -660,22 +620,6 @@
         {
             "id": "dvs/baseline_all/PT1M/XYZ",
             "title": "IAGA DVS (-68.58,77.97) baseline_all"
-        },
-        {
-            "id": "e01/baseline_all/PT1M/XYZ",
-            "title": "IAGA E01 (41.35,23.86) baseline_all"
-        },
-        {
-            "id": "e02/baseline_all/PT1M/XYZ",
-            "title": "IAGA E02 (39.45,21.97) baseline_all"
-        },
-        {
-            "id": "e03/baseline_all/PT1M/XYZ",
-            "title": "IAGA E03 (38.63,24.10) baseline_all"
-        },
-        {
-            "id": "e04/baseline_all/PT1M/XYZ",
-            "title": "IAGA E04 (38.08,23.93) baseline_all"
         },
         {
             "id": "e05/baseline_all/PT1M/XYZ",
@@ -716,10 +660,6 @@
         {
             "id": "esk/baseline_all/PT1M/XYZ",
             "title": "IAGA ESK (55.32,356.80) baseline_all"
-        },
-        {
-            "id": "eua/baseline_all/PT1M/XYZ",
-            "title": "IAGA EUA (80.00,274.10) baseline_all"
         },
         {
             "id": "eus/baseline_all/PT1M/XYZ",
@@ -770,16 +710,8 @@
             "title": "IAGA FSP (61.76,238.77) baseline_all"
         },
         {
-            "id": "ftn/baseline_all/PT1M/XYZ",
-            "title": "IAGA FTN (58.90,237.20) baseline_all"
-        },
-        {
             "id": "fur/baseline_all/PT1M/XYZ",
             "title": "IAGA FUR (48.17,11.28) baseline_all"
-        },
-        {
-            "id": "fve/baseline_all/PT1M/XYZ",
-            "title": "IAGA FVE (58.37,243.98) baseline_all"
         },
         {
             "id": "fym/baseline_all/PT1M/XYZ",
@@ -840,10 +772,6 @@
         {
             "id": "gng/baseline_all/PT1M/XYZ",
             "title": "IAGA GNG (-31.36,115.71) baseline_all"
-        },
-        {
-            "id": "grk/baseline_all/PT1M/XYZ",
-            "title": "IAGA GRK (60.27,29.38) baseline_all"
         },
         {
             "id": "gsi/baseline_all/PT1M/XYZ",
@@ -1042,10 +970,6 @@
             "title": "IAGA KAT (-33.68,117.62) baseline_all"
         },
         {
-            "id": "kau/baseline_all/PT1M/XYZ",
-            "title": "IAGA KAU (69.02,23.05) baseline_all"
-        },
-        {
             "id": "kav/baseline_all/PT1M/XYZ",
             "title": "IAGA KAV (70.14,216.35) baseline_all"
         },
@@ -1060,10 +984,6 @@
         {
             "id": "kev/baseline_all/PT1M/XYZ",
             "title": "IAGA KEV (69.76,27.01) baseline_all"
-        },
-        {
-            "id": "kgd/baseline_all/PT1M/XYZ",
-            "title": "IAGA KGD (49.82,73.08) baseline_all"
         },
         {
             "id": "khb/baseline_all/PT1M/XYZ",
@@ -1104,10 +1024,6 @@
         {
             "id": "knz/baseline_all/PT1M/XYZ",
             "title": "IAGA KNZ (55.83,48.85) baseline_all"
-        },
-        {
-            "id": "kor/baseline_all/PT1M/XYZ",
-            "title": "IAGA KOR (7.33,134.50) baseline_all"
         },
         {
             "id": "kot/baseline_all/PT1M/XYZ",
@@ -1194,10 +1110,6 @@
             "title": "IAGA LMM (-25.92,32.58) baseline_all"
         },
         {
-            "id": "lnn/baseline_all/PT1M/XYZ",
-            "title": "IAGA LNN (59.95,30.70) baseline_all"
-        },
-        {
             "id": "lnp/baseline_all/PT1M/XYZ",
             "title": "IAGA LNP (25.00,121.17) baseline_all"
         },
@@ -1254,10 +1166,6 @@
             "title": "IAGA M01 (46.87,263.55) baseline_all"
         },
         {
-            "id": "m02/baseline_all/PT1M/XYZ",
-            "title": "IAGA M02 (45.56,266.75) baseline_all"
-        },
-        {
             "id": "m03/baseline_all/PT1M/XYZ",
             "title": "IAGA M03 (43.60,264.40) baseline_all"
         },
@@ -1290,10 +1198,6 @@
             "title": "IAGA M10 (24.80,260.40) baseline_all"
         },
         {
-            "id": "m11/baseline_all/PT1M/XYZ",
-            "title": "IAGA M11 (20.70,256.90) baseline_all"
-        },
-        {
             "id": "mab/baseline_all/PT1M/XYZ",
             "title": "IAGA MAB (50.30,5.68) baseline_all"
         },
@@ -1312,10 +1216,6 @@
         {
             "id": "mbo/baseline_all/PT1M/XYZ",
             "title": "IAGA MBO (14.38,343.03) baseline_all"
-        },
-        {
-            "id": "mce/baseline_all/PT1M/XYZ",
-            "title": "IAGA MCE (72.40,326.10) baseline_all"
         },
         {
             "id": "mcg/baseline_all/PT1M/XYZ",
@@ -1398,10 +1298,6 @@
             "title": "IAGA MSH (42.60,288.52) baseline_all"
         },
         {
-            "id": "msk/baseline_all/PT1M/XYZ",
-            "title": "IAGA MSK (52.69,34.52) baseline_all"
-        },
-        {
             "id": "msr/baseline_all/PT1M/XYZ",
             "title": "IAGA MSR (44.37,142.27) baseline_all"
         },
@@ -1412,10 +1308,6 @@
         {
             "id": "mut/baseline_all/PT1M/XYZ",
             "title": "IAGA MUT (14.37,121.02) baseline_all"
-        },
-        {
-            "id": "mzh/baseline_all/PT1M/XYZ",
-            "title": "IAGA MZH (49.60,117.40) baseline_all"
         },
         {
             "id": "nab/baseline_all/PT1M/XYZ",
@@ -1450,10 +1342,6 @@
             "title": "IAGA NGK (52.07,12.68) baseline_all"
         },
         {
-            "id": "nkk/baseline_all/PT1M/XYZ",
-            "title": "IAGA NKK (45.77,62.12) baseline_all"
-        },
-        {
             "id": "nmp/baseline_all/PT1M/XYZ",
             "title": "IAGA NMP (-15.09,39.25) baseline_all"
         },
@@ -1476,10 +1364,6 @@
         {
             "id": "nur/baseline_all/PT1M/XYZ",
             "title": "IAGA NUR (60.50,24.65) baseline_all"
-        },
-        {
-            "id": "nvl/baseline_all/PT1M/XYZ",
-            "title": "IAGA NVL (-70.78,11.83) baseline_all"
         },
         {
             "id": "nvs/baseline_all/PT1M/XYZ",
@@ -1606,14 +1490,6 @@
             "title": "IAGA PKR (65.12,212.57) baseline_all"
         },
         {
-            "id": "pks/baseline_all/PT1M/XYZ",
-            "title": "IAGA PKS (52.50,252.80) baseline_all"
-        },
-        {
-            "id": "pnl/baseline_all/PT1M/XYZ",
-            "title": "IAGA PNL (-16.68,303.83) baseline_all"
-        },
-        {
             "id": "pnt/baseline_all/PT1M/XYZ",
             "title": "IAGA PNT (-53.20,289.10) baseline_all"
         },
@@ -1628,10 +1504,6 @@
         {
             "id": "ppt/baseline_all/PT1M/XYZ",
             "title": "IAGA PPT (-17.57,210.42) baseline_all"
-        },
-        {
-            "id": "prg/baseline_all/PT1M/XYZ",
-            "title": "IAGA PRG (-69.23,76.23) baseline_all"
         },
         {
             "id": "prp/baseline_all/PT1M/XYZ",
@@ -1750,24 +1622,12 @@
             "title": "IAGA RPB (66.52,273.77) baseline_all"
         },
         {
-            "id": "rsv/baseline_all/PT1M/XYZ",
-            "title": "IAGA RSV (55.85,12.45) baseline_all"
-        },
-        {
             "id": "rvk/baseline_all/PT1M/XYZ",
             "title": "IAGA RVK (64.94,10.99) baseline_all"
         },
         {
             "id": "s01/baseline_all/PT1M/XYZ",
             "title": "IAGA S01 (64.37,13.36) baseline_all"
-        },
-        {
-            "id": "sah/baseline_all/PT1M/XYZ",
-            "title": "IAGA SAH (71.98,234.77) baseline_all"
-        },
-        {
-            "id": "sas/baseline_all/PT1M/XYZ",
-            "title": "IAGA SAS (52.80,253.60) baseline_all"
         },
         {
             "id": "sba/baseline_all/PT1M/XYZ",
@@ -1822,10 +1682,6 @@
             "title": "IAGA SKT (65.42,307.10) baseline_all"
         },
         {
-            "id": "sma/baseline_all/PT1M/XYZ",
-            "title": "IAGA SMA (36.99,334.87) baseline_all"
-        },
-        {
             "id": "smi/baseline_all/PT1M/XYZ",
             "title": "IAGA SMI (60.03,248.07) baseline_all"
         },
@@ -1872,10 +1728,6 @@
         {
             "id": "sum/baseline_all/PT1M/XYZ",
             "title": "IAGA SUM (72.30,321.70) baseline_all"
-        },
-        {
-            "id": "sut/baseline_all/PT1M/XYZ",
-            "title": "IAGA SUT (-32.40,20.67) baseline_all"
         },
         {
             "id": "suw/baseline_all/PT1M/XYZ",
@@ -1936,14 +1788,6 @@
         {
             "id": "t25/baseline_all/PT1M/XYZ",
             "title": "IAGA T25 (45.14,241.07) baseline_all"
-        },
-        {
-            "id": "t26/baseline_all/PT1M/XYZ",
-            "title": "IAGA T26 (34.20,242.15) baseline_all"
-        },
-        {
-            "id": "t27/baseline_all/PT1M/XYZ",
-            "title": "IAGA T27 (34.38,242.32) baseline_all"
         },
         {
             "id": "t28/baseline_all/PT1M/XYZ",
@@ -2074,10 +1918,6 @@
             "title": "IAGA T59 (57.79,207.60) baseline_all"
         },
         {
-            "id": "t60/baseline_all/PT1M/XYZ",
-            "title": "IAGA T60 (66.63,210.40) baseline_all"
-        },
-        {
             "id": "t61/baseline_all/PT1M/XYZ",
             "title": "IAGA T61 (37.88,284.56) baseline_all"
         },
@@ -2134,20 +1974,8 @@
             "title": "IAGA TIR (8.48,76.95) baseline_all"
         },
         {
-            "id": "tkt/baseline_all/PT1M/XYZ",
-            "title": "IAGA TKT (41.33,69.62) baseline_all"
-        },
-        {
-            "id": "tlk/baseline_all/PT1M/XYZ",
-            "title": "IAGA TLK (63.30,209.90) baseline_all"
-        },
-        {
             "id": "tnd/baseline_all/PT1M/XYZ",
             "title": "IAGA TND (1.29,124.95) baseline_all"
-        },
-        {
-            "id": "tol/baseline_all/PT1M/XYZ",
-            "title": "IAGA TOL (39.88,355.95) baseline_all"
         },
         {
             "id": "top/baseline_all/PT1M/XYZ",
@@ -2176,10 +2004,6 @@
         {
             "id": "tuc/baseline_all/PT1M/XYZ",
             "title": "IAGA TUC (32.17,249.27) baseline_all"
-        },
-        {
-            "id": "tul/baseline_all/PT1M/XYZ",
-            "title": "IAGA TUL (35.92,264.22) baseline_all"
         },
         {
             "id": "twn/baseline_all/PT1M/XYZ",
@@ -2238,28 +2062,12 @@
             "title": "IAGA VSS (-22.40,316.35) baseline_all"
         },
         {
-            "id": "vyh/baseline_all/PT1M/XYZ",
-            "title": "IAGA VYH (48.49,18.84) baseline_all"
-        },
-        {
             "id": "w01/baseline_all/PT1M/XYZ",
             "title": "IAGA W01 (-41.55,147.21) baseline_all"
         },
         {
             "id": "w02/baseline_all/PT1M/XYZ",
             "title": "IAGA W02 (-29.03,167.97) baseline_all"
-        },
-        {
-            "id": "w03/baseline_all/PT1M/XYZ",
-            "title": "IAGA W03 (-2.70,141.30) baseline_all"
-        },
-        {
-            "id": "w04/baseline_all/PT1M/XYZ",
-            "title": "IAGA W04 (-66.28,111.53) baseline_all"
-        },
-        {
-            "id": "w05/baseline_all/PT1M/XYZ",
-            "title": "IAGA W05 (-68.58,77.96) baseline_all"
         },
         {
             "id": "wad/baseline_all/PT1M/XYZ",
@@ -2294,10 +2102,6 @@
             "title": "IAGA WSE (66.55,33.10) baseline_all"
         },
         {
-            "id": "wtk/baseline_all/PT1M/XYZ",
-            "title": "IAGA WTK (-7.56,112.63) baseline_all"
-        },
-        {
             "id": "y01/baseline_all/PT1M/XYZ",
             "title": "IAGA Y01 (-31.80,290.71) baseline_all"
         },
@@ -2308,10 +2112,6 @@
         {
             "id": "y03/baseline_all/PT1M/XYZ",
             "title": "IAGA Y03 (-15.56,303.93) baseline_all"
-        },
-        {
-            "id": "y04/baseline_all/PT1M/XYZ",
-            "title": "IAGA Y04 (-2.59,315.79) baseline_all"
         },
         {
             "id": "y05/baseline_all/PT1M/XYZ",
@@ -2388,10 +2188,6 @@
         {
             "id": "yor/baseline_all/PT1M/XYZ",
             "title": "IAGA YOR (53.95,358.95) baseline_all"
-        },
-        {
-            "id": "yss/baseline_all/PT1M/XYZ",
-            "title": "IAGA YSS (46.95,142.72) baseline_all"
         },
         {
             "id": "zag/baseline_all/PT1M/XYZ",
@@ -2486,10 +2282,6 @@
             "title": "IAGA ALE (82.50,297.50) baseline_all"
         },
         {
-            "id": "alt/baseline_all/PT1M/NEZ",
-            "title": "IAGA ALT (69.86,22.96) baseline_all"
-        },
-        {
             "id": "ama/baseline_all/PT1M/NEZ",
             "title": "IAGA AMA (28.17,129.33) baseline_all"
         },
@@ -2538,16 +2330,8 @@
             "title": "IAGA ARC (68.12,214.44) baseline_all"
         },
         {
-            "id": "ark/baseline_all/PT1M/NEZ",
-            "title": "IAGA ARK (64.60,40.50) baseline_all"
-        },
-        {
             "id": "ars/baseline_all/PT1M/NEZ",
             "title": "IAGA ARS (56.43,58.57) baseline_all"
-        },
-        {
-            "id": "asa/baseline_all/PT1M/NEZ",
-            "title": "IAGA ASA (-14.28,170.70) baseline_all"
         },
         {
             "id": "asb/baseline_all/PT1M/NEZ",
@@ -2556,10 +2340,6 @@
         {
             "id": "asc/baseline_all/PT1M/NEZ",
             "title": "IAGA ASC (-7.95,345.62) baseline_all"
-        },
-        {
-            "id": "ash/baseline_all/PT1M/NEZ",
-            "title": "IAGA ASH (37.95,58.10) baseline_all"
         },
         {
             "id": "asp/baseline_all/PT1M/NEZ",
@@ -2572,10 +2352,6 @@
         {
             "id": "atu/baseline_all/PT1M/NEZ",
             "title": "IAGA ATU (67.93,306.43) baseline_all"
-        },
-        {
-            "id": "b01/baseline_all/PT1M/NEZ",
-            "title": "IAGA B01 (-64.82,296.52) baseline_all"
         },
         {
             "id": "b02/baseline_all/PT1M/NEZ",
@@ -2712,10 +2488,6 @@
         {
             "id": "bik/baseline_all/PT1M/NEZ",
             "title": "IAGA BIK (-1.08,136.05) baseline_all"
-        },
-        {
-            "id": "bji/baseline_all/PT1M/NEZ",
-            "title": "IAGA BJI (40.06,116.18) baseline_all"
         },
         {
             "id": "bjn/baseline_all/PT1M/NEZ",
@@ -2862,10 +2634,6 @@
             "title": "IAGA CER (-33.45,289.40) baseline_all"
         },
         {
-            "id": "cgo/baseline_all/PT1M/NEZ",
-            "title": "IAGA CGO (64.87,212.14) baseline_all"
-        },
-        {
             "id": "chc/baseline_all/PT1M/NEZ",
             "title": "IAGA CHC (64.35,276.00) baseline_all"
         },
@@ -2922,10 +2690,6 @@
             "title": "IAGA CPS (68.88,180.63) baseline_all"
         },
         {
-            "id": "cpy/baseline_all/PT1M/NEZ",
-            "title": "IAGA CPY (70.20,235.30) baseline_all"
-        },
-        {
             "id": "crk/baseline_all/PT1M/NEZ",
             "title": "IAGA CRK (57.09,357.36) baseline_all"
         },
@@ -2948,10 +2712,6 @@
         {
             "id": "cul/baseline_all/PT1M/NEZ",
             "title": "IAGA CUL (-30.28,149.58) baseline_all"
-        },
-        {
-            "id": "cwe/baseline_all/PT1M/NEZ",
-            "title": "IAGA CWE (66.17,190.17) baseline_all"
         },
         {
             "id": "cy0/baseline_all/PT1M/NEZ",
@@ -3018,10 +2778,6 @@
             "title": "IAGA DOU (50.10,4.60) baseline_all"
         },
         {
-            "id": "drb/baseline_all/PT1M/NEZ",
-            "title": "IAGA DRB (-29.48,30.56) baseline_all"
-        },
-        {
             "id": "drv/baseline_all/PT1M/NEZ",
             "title": "IAGA DRV (-66.67,140.01) baseline_all"
         },
@@ -3040,22 +2796,6 @@
         {
             "id": "dvs/baseline_all/PT1M/NEZ",
             "title": "IAGA DVS (-68.58,77.97) baseline_all"
-        },
-        {
-            "id": "e01/baseline_all/PT1M/NEZ",
-            "title": "IAGA E01 (41.35,23.86) baseline_all"
-        },
-        {
-            "id": "e02/baseline_all/PT1M/NEZ",
-            "title": "IAGA E02 (39.45,21.97) baseline_all"
-        },
-        {
-            "id": "e03/baseline_all/PT1M/NEZ",
-            "title": "IAGA E03 (38.63,24.10) baseline_all"
-        },
-        {
-            "id": "e04/baseline_all/PT1M/NEZ",
-            "title": "IAGA E04 (38.08,23.93) baseline_all"
         },
         {
             "id": "e05/baseline_all/PT1M/NEZ",
@@ -3096,10 +2836,6 @@
         {
             "id": "esk/baseline_all/PT1M/NEZ",
             "title": "IAGA ESK (55.32,356.80) baseline_all"
-        },
-        {
-            "id": "eua/baseline_all/PT1M/NEZ",
-            "title": "IAGA EUA (80.00,274.10) baseline_all"
         },
         {
             "id": "eus/baseline_all/PT1M/NEZ",
@@ -3150,16 +2886,8 @@
             "title": "IAGA FSP (61.76,238.77) baseline_all"
         },
         {
-            "id": "ftn/baseline_all/PT1M/NEZ",
-            "title": "IAGA FTN (58.90,237.20) baseline_all"
-        },
-        {
             "id": "fur/baseline_all/PT1M/NEZ",
             "title": "IAGA FUR (48.17,11.28) baseline_all"
-        },
-        {
-            "id": "fve/baseline_all/PT1M/NEZ",
-            "title": "IAGA FVE (58.37,243.98) baseline_all"
         },
         {
             "id": "fym/baseline_all/PT1M/NEZ",
@@ -3220,10 +2948,6 @@
         {
             "id": "gng/baseline_all/PT1M/NEZ",
             "title": "IAGA GNG (-31.36,115.71) baseline_all"
-        },
-        {
-            "id": "grk/baseline_all/PT1M/NEZ",
-            "title": "IAGA GRK (60.27,29.38) baseline_all"
         },
         {
             "id": "gsi/baseline_all/PT1M/NEZ",
@@ -3422,10 +3146,6 @@
             "title": "IAGA KAT (-33.68,117.62) baseline_all"
         },
         {
-            "id": "kau/baseline_all/PT1M/NEZ",
-            "title": "IAGA KAU (69.02,23.05) baseline_all"
-        },
-        {
             "id": "kav/baseline_all/PT1M/NEZ",
             "title": "IAGA KAV (70.14,216.35) baseline_all"
         },
@@ -3440,10 +3160,6 @@
         {
             "id": "kev/baseline_all/PT1M/NEZ",
             "title": "IAGA KEV (69.76,27.01) baseline_all"
-        },
-        {
-            "id": "kgd/baseline_all/PT1M/NEZ",
-            "title": "IAGA KGD (49.82,73.08) baseline_all"
         },
         {
             "id": "khb/baseline_all/PT1M/NEZ",
@@ -3484,10 +3200,6 @@
         {
             "id": "knz/baseline_all/PT1M/NEZ",
             "title": "IAGA KNZ (55.83,48.85) baseline_all"
-        },
-        {
-            "id": "kor/baseline_all/PT1M/NEZ",
-            "title": "IAGA KOR (7.33,134.50) baseline_all"
         },
         {
             "id": "kot/baseline_all/PT1M/NEZ",
@@ -3574,10 +3286,6 @@
             "title": "IAGA LMM (-25.92,32.58) baseline_all"
         },
         {
-            "id": "lnn/baseline_all/PT1M/NEZ",
-            "title": "IAGA LNN (59.95,30.70) baseline_all"
-        },
-        {
             "id": "lnp/baseline_all/PT1M/NEZ",
             "title": "IAGA LNP (25.00,121.17) baseline_all"
         },
@@ -3634,10 +3342,6 @@
             "title": "IAGA M01 (46.87,263.55) baseline_all"
         },
         {
-            "id": "m02/baseline_all/PT1M/NEZ",
-            "title": "IAGA M02 (45.56,266.75) baseline_all"
-        },
-        {
             "id": "m03/baseline_all/PT1M/NEZ",
             "title": "IAGA M03 (43.60,264.40) baseline_all"
         },
@@ -3670,10 +3374,6 @@
             "title": "IAGA M10 (24.80,260.40) baseline_all"
         },
         {
-            "id": "m11/baseline_all/PT1M/NEZ",
-            "title": "IAGA M11 (20.70,256.90) baseline_all"
-        },
-        {
             "id": "mab/baseline_all/PT1M/NEZ",
             "title": "IAGA MAB (50.30,5.68) baseline_all"
         },
@@ -3692,10 +3392,6 @@
         {
             "id": "mbo/baseline_all/PT1M/NEZ",
             "title": "IAGA MBO (14.38,343.03) baseline_all"
-        },
-        {
-            "id": "mce/baseline_all/PT1M/NEZ",
-            "title": "IAGA MCE (72.40,326.10) baseline_all"
         },
         {
             "id": "mcg/baseline_all/PT1M/NEZ",
@@ -3778,10 +3474,6 @@
             "title": "IAGA MSH (42.60,288.52) baseline_all"
         },
         {
-            "id": "msk/baseline_all/PT1M/NEZ",
-            "title": "IAGA MSK (52.69,34.52) baseline_all"
-        },
-        {
             "id": "msr/baseline_all/PT1M/NEZ",
             "title": "IAGA MSR (44.37,142.27) baseline_all"
         },
@@ -3792,10 +3484,6 @@
         {
             "id": "mut/baseline_all/PT1M/NEZ",
             "title": "IAGA MUT (14.37,121.02) baseline_all"
-        },
-        {
-            "id": "mzh/baseline_all/PT1M/NEZ",
-            "title": "IAGA MZH (49.60,117.40) baseline_all"
         },
         {
             "id": "nab/baseline_all/PT1M/NEZ",
@@ -3830,10 +3518,6 @@
             "title": "IAGA NGK (52.07,12.68) baseline_all"
         },
         {
-            "id": "nkk/baseline_all/PT1M/NEZ",
-            "title": "IAGA NKK (45.77,62.12) baseline_all"
-        },
-        {
             "id": "nmp/baseline_all/PT1M/NEZ",
             "title": "IAGA NMP (-15.09,39.25) baseline_all"
         },
@@ -3856,10 +3540,6 @@
         {
             "id": "nur/baseline_all/PT1M/NEZ",
             "title": "IAGA NUR (60.50,24.65) baseline_all"
-        },
-        {
-            "id": "nvl/baseline_all/PT1M/NEZ",
-            "title": "IAGA NVL (-70.78,11.83) baseline_all"
         },
         {
             "id": "nvs/baseline_all/PT1M/NEZ",
@@ -3986,14 +3666,6 @@
             "title": "IAGA PKR (65.12,212.57) baseline_all"
         },
         {
-            "id": "pks/baseline_all/PT1M/NEZ",
-            "title": "IAGA PKS (52.50,252.80) baseline_all"
-        },
-        {
-            "id": "pnl/baseline_all/PT1M/NEZ",
-            "title": "IAGA PNL (-16.68,303.83) baseline_all"
-        },
-        {
             "id": "pnt/baseline_all/PT1M/NEZ",
             "title": "IAGA PNT (-53.20,289.10) baseline_all"
         },
@@ -4008,10 +3680,6 @@
         {
             "id": "ppt/baseline_all/PT1M/NEZ",
             "title": "IAGA PPT (-17.57,210.42) baseline_all"
-        },
-        {
-            "id": "prg/baseline_all/PT1M/NEZ",
-            "title": "IAGA PRG (-69.23,76.23) baseline_all"
         },
         {
             "id": "prp/baseline_all/PT1M/NEZ",
@@ -4130,24 +3798,12 @@
             "title": "IAGA RPB (66.52,273.77) baseline_all"
         },
         {
-            "id": "rsv/baseline_all/PT1M/NEZ",
-            "title": "IAGA RSV (55.85,12.45) baseline_all"
-        },
-        {
             "id": "rvk/baseline_all/PT1M/NEZ",
             "title": "IAGA RVK (64.94,10.99) baseline_all"
         },
         {
             "id": "s01/baseline_all/PT1M/NEZ",
             "title": "IAGA S01 (64.37,13.36) baseline_all"
-        },
-        {
-            "id": "sah/baseline_all/PT1M/NEZ",
-            "title": "IAGA SAH (71.98,234.77) baseline_all"
-        },
-        {
-            "id": "sas/baseline_all/PT1M/NEZ",
-            "title": "IAGA SAS (52.80,253.60) baseline_all"
         },
         {
             "id": "sba/baseline_all/PT1M/NEZ",
@@ -4202,10 +3858,6 @@
             "title": "IAGA SKT (65.42,307.10) baseline_all"
         },
         {
-            "id": "sma/baseline_all/PT1M/NEZ",
-            "title": "IAGA SMA (36.99,334.87) baseline_all"
-        },
-        {
             "id": "smi/baseline_all/PT1M/NEZ",
             "title": "IAGA SMI (60.03,248.07) baseline_all"
         },
@@ -4252,10 +3904,6 @@
         {
             "id": "sum/baseline_all/PT1M/NEZ",
             "title": "IAGA SUM (72.30,321.70) baseline_all"
-        },
-        {
-            "id": "sut/baseline_all/PT1M/NEZ",
-            "title": "IAGA SUT (-32.40,20.67) baseline_all"
         },
         {
             "id": "suw/baseline_all/PT1M/NEZ",
@@ -4316,14 +3964,6 @@
         {
             "id": "t25/baseline_all/PT1M/NEZ",
             "title": "IAGA T25 (45.14,241.07) baseline_all"
-        },
-        {
-            "id": "t26/baseline_all/PT1M/NEZ",
-            "title": "IAGA T26 (34.20,242.15) baseline_all"
-        },
-        {
-            "id": "t27/baseline_all/PT1M/NEZ",
-            "title": "IAGA T27 (34.38,242.32) baseline_all"
         },
         {
             "id": "t28/baseline_all/PT1M/NEZ",
@@ -4454,10 +4094,6 @@
             "title": "IAGA T59 (57.79,207.60) baseline_all"
         },
         {
-            "id": "t60/baseline_all/PT1M/NEZ",
-            "title": "IAGA T60 (66.63,210.40) baseline_all"
-        },
-        {
             "id": "t61/baseline_all/PT1M/NEZ",
             "title": "IAGA T61 (37.88,284.56) baseline_all"
         },
@@ -4514,20 +4150,8 @@
             "title": "IAGA TIR (8.48,76.95) baseline_all"
         },
         {
-            "id": "tkt/baseline_all/PT1M/NEZ",
-            "title": "IAGA TKT (41.33,69.62) baseline_all"
-        },
-        {
-            "id": "tlk/baseline_all/PT1M/NEZ",
-            "title": "IAGA TLK (63.30,209.90) baseline_all"
-        },
-        {
             "id": "tnd/baseline_all/PT1M/NEZ",
             "title": "IAGA TND (1.29,124.95) baseline_all"
-        },
-        {
-            "id": "tol/baseline_all/PT1M/NEZ",
-            "title": "IAGA TOL (39.88,355.95) baseline_all"
         },
         {
             "id": "top/baseline_all/PT1M/NEZ",
@@ -4556,10 +4180,6 @@
         {
             "id": "tuc/baseline_all/PT1M/NEZ",
             "title": "IAGA TUC (32.17,249.27) baseline_all"
-        },
-        {
-            "id": "tul/baseline_all/PT1M/NEZ",
-            "title": "IAGA TUL (35.92,264.22) baseline_all"
         },
         {
             "id": "twn/baseline_all/PT1M/NEZ",
@@ -4618,28 +4238,12 @@
             "title": "IAGA VSS (-22.40,316.35) baseline_all"
         },
         {
-            "id": "vyh/baseline_all/PT1M/NEZ",
-            "title": "IAGA VYH (48.49,18.84) baseline_all"
-        },
-        {
             "id": "w01/baseline_all/PT1M/NEZ",
             "title": "IAGA W01 (-41.55,147.21) baseline_all"
         },
         {
             "id": "w02/baseline_all/PT1M/NEZ",
             "title": "IAGA W02 (-29.03,167.97) baseline_all"
-        },
-        {
-            "id": "w03/baseline_all/PT1M/NEZ",
-            "title": "IAGA W03 (-2.70,141.30) baseline_all"
-        },
-        {
-            "id": "w04/baseline_all/PT1M/NEZ",
-            "title": "IAGA W04 (-66.28,111.53) baseline_all"
-        },
-        {
-            "id": "w05/baseline_all/PT1M/NEZ",
-            "title": "IAGA W05 (-68.58,77.96) baseline_all"
         },
         {
             "id": "wad/baseline_all/PT1M/NEZ",
@@ -4674,10 +4278,6 @@
             "title": "IAGA WSE (66.55,33.10) baseline_all"
         },
         {
-            "id": "wtk/baseline_all/PT1M/NEZ",
-            "title": "IAGA WTK (-7.56,112.63) baseline_all"
-        },
-        {
             "id": "y01/baseline_all/PT1M/NEZ",
             "title": "IAGA Y01 (-31.80,290.71) baseline_all"
         },
@@ -4688,10 +4288,6 @@
         {
             "id": "y03/baseline_all/PT1M/NEZ",
             "title": "IAGA Y03 (-15.56,303.93) baseline_all"
-        },
-        {
-            "id": "y04/baseline_all/PT1M/NEZ",
-            "title": "IAGA Y04 (-2.59,315.79) baseline_all"
         },
         {
             "id": "y05/baseline_all/PT1M/NEZ",
@@ -4768,10 +4364,6 @@
         {
             "id": "yor/baseline_all/PT1M/NEZ",
             "title": "IAGA YOR (53.95,358.95) baseline_all"
-        },
-        {
-            "id": "yss/baseline_all/PT1M/NEZ",
-            "title": "IAGA YSS (46.95,142.72) baseline_all"
         },
         {
             "id": "zag/baseline_all/PT1M/NEZ",
@@ -4866,10 +4458,6 @@
             "title": "IAGA ALE (82.50,297.50) baseline_yearly"
         },
         {
-            "id": "alt/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA ALT (69.86,22.96) baseline_yearly"
-        },
-        {
             "id": "ama/baseline_yearly/PT1M/XYZ",
             "title": "IAGA AMA (28.17,129.33) baseline_yearly"
         },
@@ -4918,16 +4506,8 @@
             "title": "IAGA ARC (68.12,214.44) baseline_yearly"
         },
         {
-            "id": "ark/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA ARK (64.60,40.50) baseline_yearly"
-        },
-        {
             "id": "ars/baseline_yearly/PT1M/XYZ",
             "title": "IAGA ARS (56.43,58.57) baseline_yearly"
-        },
-        {
-            "id": "asa/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA ASA (-14.28,170.70) baseline_yearly"
         },
         {
             "id": "asb/baseline_yearly/PT1M/XYZ",
@@ -4936,10 +4516,6 @@
         {
             "id": "asc/baseline_yearly/PT1M/XYZ",
             "title": "IAGA ASC (-7.95,345.62) baseline_yearly"
-        },
-        {
-            "id": "ash/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA ASH (37.95,58.10) baseline_yearly"
         },
         {
             "id": "asp/baseline_yearly/PT1M/XYZ",
@@ -4952,10 +4528,6 @@
         {
             "id": "atu/baseline_yearly/PT1M/XYZ",
             "title": "IAGA ATU (67.93,306.43) baseline_yearly"
-        },
-        {
-            "id": "b01/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA B01 (-64.82,296.52) baseline_yearly"
         },
         {
             "id": "b02/baseline_yearly/PT1M/XYZ",
@@ -5092,10 +4664,6 @@
         {
             "id": "bik/baseline_yearly/PT1M/XYZ",
             "title": "IAGA BIK (-1.08,136.05) baseline_yearly"
-        },
-        {
-            "id": "bji/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA BJI (40.06,116.18) baseline_yearly"
         },
         {
             "id": "bjn/baseline_yearly/PT1M/XYZ",
@@ -5242,10 +4810,6 @@
             "title": "IAGA CER (-33.45,289.40) baseline_yearly"
         },
         {
-            "id": "cgo/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA CGO (64.87,212.14) baseline_yearly"
-        },
-        {
             "id": "chc/baseline_yearly/PT1M/XYZ",
             "title": "IAGA CHC (64.35,276.00) baseline_yearly"
         },
@@ -5302,10 +4866,6 @@
             "title": "IAGA CPS (68.88,180.63) baseline_yearly"
         },
         {
-            "id": "cpy/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA CPY (70.20,235.30) baseline_yearly"
-        },
-        {
             "id": "crk/baseline_yearly/PT1M/XYZ",
             "title": "IAGA CRK (57.09,357.36) baseline_yearly"
         },
@@ -5328,10 +4888,6 @@
         {
             "id": "cul/baseline_yearly/PT1M/XYZ",
             "title": "IAGA CUL (-30.28,149.58) baseline_yearly"
-        },
-        {
-            "id": "cwe/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA CWE (66.17,190.17) baseline_yearly"
         },
         {
             "id": "cy0/baseline_yearly/PT1M/XYZ",
@@ -5398,10 +4954,6 @@
             "title": "IAGA DOU (50.10,4.60) baseline_yearly"
         },
         {
-            "id": "drb/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA DRB (-29.48,30.56) baseline_yearly"
-        },
-        {
             "id": "drv/baseline_yearly/PT1M/XYZ",
             "title": "IAGA DRV (-66.67,140.01) baseline_yearly"
         },
@@ -5420,22 +4972,6 @@
         {
             "id": "dvs/baseline_yearly/PT1M/XYZ",
             "title": "IAGA DVS (-68.58,77.97) baseline_yearly"
-        },
-        {
-            "id": "e01/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA E01 (41.35,23.86) baseline_yearly"
-        },
-        {
-            "id": "e02/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA E02 (39.45,21.97) baseline_yearly"
-        },
-        {
-            "id": "e03/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA E03 (38.63,24.10) baseline_yearly"
-        },
-        {
-            "id": "e04/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA E04 (38.08,23.93) baseline_yearly"
         },
         {
             "id": "e05/baseline_yearly/PT1M/XYZ",
@@ -5476,10 +5012,6 @@
         {
             "id": "esk/baseline_yearly/PT1M/XYZ",
             "title": "IAGA ESK (55.32,356.80) baseline_yearly"
-        },
-        {
-            "id": "eua/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA EUA (80.00,274.10) baseline_yearly"
         },
         {
             "id": "eus/baseline_yearly/PT1M/XYZ",
@@ -5530,16 +5062,8 @@
             "title": "IAGA FSP (61.76,238.77) baseline_yearly"
         },
         {
-            "id": "ftn/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA FTN (58.90,237.20) baseline_yearly"
-        },
-        {
             "id": "fur/baseline_yearly/PT1M/XYZ",
             "title": "IAGA FUR (48.17,11.28) baseline_yearly"
-        },
-        {
-            "id": "fve/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA FVE (58.37,243.98) baseline_yearly"
         },
         {
             "id": "fym/baseline_yearly/PT1M/XYZ",
@@ -5600,10 +5124,6 @@
         {
             "id": "gng/baseline_yearly/PT1M/XYZ",
             "title": "IAGA GNG (-31.36,115.71) baseline_yearly"
-        },
-        {
-            "id": "grk/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA GRK (60.27,29.38) baseline_yearly"
         },
         {
             "id": "gsi/baseline_yearly/PT1M/XYZ",
@@ -5802,10 +5322,6 @@
             "title": "IAGA KAT (-33.68,117.62) baseline_yearly"
         },
         {
-            "id": "kau/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA KAU (69.02,23.05) baseline_yearly"
-        },
-        {
             "id": "kav/baseline_yearly/PT1M/XYZ",
             "title": "IAGA KAV (70.14,216.35) baseline_yearly"
         },
@@ -5820,10 +5336,6 @@
         {
             "id": "kev/baseline_yearly/PT1M/XYZ",
             "title": "IAGA KEV (69.76,27.01) baseline_yearly"
-        },
-        {
-            "id": "kgd/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA KGD (49.82,73.08) baseline_yearly"
         },
         {
             "id": "khb/baseline_yearly/PT1M/XYZ",
@@ -5864,10 +5376,6 @@
         {
             "id": "knz/baseline_yearly/PT1M/XYZ",
             "title": "IAGA KNZ (55.83,48.85) baseline_yearly"
-        },
-        {
-            "id": "kor/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA KOR (7.33,134.50) baseline_yearly"
         },
         {
             "id": "kot/baseline_yearly/PT1M/XYZ",
@@ -5954,10 +5462,6 @@
             "title": "IAGA LMM (-25.92,32.58) baseline_yearly"
         },
         {
-            "id": "lnn/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA LNN (59.95,30.70) baseline_yearly"
-        },
-        {
             "id": "lnp/baseline_yearly/PT1M/XYZ",
             "title": "IAGA LNP (25.00,121.17) baseline_yearly"
         },
@@ -6014,10 +5518,6 @@
             "title": "IAGA M01 (46.87,263.55) baseline_yearly"
         },
         {
-            "id": "m02/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA M02 (45.56,266.75) baseline_yearly"
-        },
-        {
             "id": "m03/baseline_yearly/PT1M/XYZ",
             "title": "IAGA M03 (43.60,264.40) baseline_yearly"
         },
@@ -6050,10 +5550,6 @@
             "title": "IAGA M10 (24.80,260.40) baseline_yearly"
         },
         {
-            "id": "m11/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA M11 (20.70,256.90) baseline_yearly"
-        },
-        {
             "id": "mab/baseline_yearly/PT1M/XYZ",
             "title": "IAGA MAB (50.30,5.68) baseline_yearly"
         },
@@ -6072,10 +5568,6 @@
         {
             "id": "mbo/baseline_yearly/PT1M/XYZ",
             "title": "IAGA MBO (14.38,343.03) baseline_yearly"
-        },
-        {
-            "id": "mce/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA MCE (72.40,326.10) baseline_yearly"
         },
         {
             "id": "mcg/baseline_yearly/PT1M/XYZ",
@@ -6158,10 +5650,6 @@
             "title": "IAGA MSH (42.60,288.52) baseline_yearly"
         },
         {
-            "id": "msk/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA MSK (52.69,34.52) baseline_yearly"
-        },
-        {
             "id": "msr/baseline_yearly/PT1M/XYZ",
             "title": "IAGA MSR (44.37,142.27) baseline_yearly"
         },
@@ -6172,10 +5660,6 @@
         {
             "id": "mut/baseline_yearly/PT1M/XYZ",
             "title": "IAGA MUT (14.37,121.02) baseline_yearly"
-        },
-        {
-            "id": "mzh/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA MZH (49.60,117.40) baseline_yearly"
         },
         {
             "id": "nab/baseline_yearly/PT1M/XYZ",
@@ -6210,10 +5694,6 @@
             "title": "IAGA NGK (52.07,12.68) baseline_yearly"
         },
         {
-            "id": "nkk/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA NKK (45.77,62.12) baseline_yearly"
-        },
-        {
             "id": "nmp/baseline_yearly/PT1M/XYZ",
             "title": "IAGA NMP (-15.09,39.25) baseline_yearly"
         },
@@ -6236,10 +5716,6 @@
         {
             "id": "nur/baseline_yearly/PT1M/XYZ",
             "title": "IAGA NUR (60.50,24.65) baseline_yearly"
-        },
-        {
-            "id": "nvl/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA NVL (-70.78,11.83) baseline_yearly"
         },
         {
             "id": "nvs/baseline_yearly/PT1M/XYZ",
@@ -6366,14 +5842,6 @@
             "title": "IAGA PKR (65.12,212.57) baseline_yearly"
         },
         {
-            "id": "pks/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA PKS (52.50,252.80) baseline_yearly"
-        },
-        {
-            "id": "pnl/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA PNL (-16.68,303.83) baseline_yearly"
-        },
-        {
             "id": "pnt/baseline_yearly/PT1M/XYZ",
             "title": "IAGA PNT (-53.20,289.10) baseline_yearly"
         },
@@ -6388,10 +5856,6 @@
         {
             "id": "ppt/baseline_yearly/PT1M/XYZ",
             "title": "IAGA PPT (-17.57,210.42) baseline_yearly"
-        },
-        {
-            "id": "prg/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA PRG (-69.23,76.23) baseline_yearly"
         },
         {
             "id": "prp/baseline_yearly/PT1M/XYZ",
@@ -6510,24 +5974,12 @@
             "title": "IAGA RPB (66.52,273.77) baseline_yearly"
         },
         {
-            "id": "rsv/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA RSV (55.85,12.45) baseline_yearly"
-        },
-        {
             "id": "rvk/baseline_yearly/PT1M/XYZ",
             "title": "IAGA RVK (64.94,10.99) baseline_yearly"
         },
         {
             "id": "s01/baseline_yearly/PT1M/XYZ",
             "title": "IAGA S01 (64.37,13.36) baseline_yearly"
-        },
-        {
-            "id": "sah/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA SAH (71.98,234.77) baseline_yearly"
-        },
-        {
-            "id": "sas/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA SAS (52.80,253.60) baseline_yearly"
         },
         {
             "id": "sba/baseline_yearly/PT1M/XYZ",
@@ -6582,10 +6034,6 @@
             "title": "IAGA SKT (65.42,307.10) baseline_yearly"
         },
         {
-            "id": "sma/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA SMA (36.99,334.87) baseline_yearly"
-        },
-        {
             "id": "smi/baseline_yearly/PT1M/XYZ",
             "title": "IAGA SMI (60.03,248.07) baseline_yearly"
         },
@@ -6632,10 +6080,6 @@
         {
             "id": "sum/baseline_yearly/PT1M/XYZ",
             "title": "IAGA SUM (72.30,321.70) baseline_yearly"
-        },
-        {
-            "id": "sut/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA SUT (-32.40,20.67) baseline_yearly"
         },
         {
             "id": "suw/baseline_yearly/PT1M/XYZ",
@@ -6696,14 +6140,6 @@
         {
             "id": "t25/baseline_yearly/PT1M/XYZ",
             "title": "IAGA T25 (45.14,241.07) baseline_yearly"
-        },
-        {
-            "id": "t26/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA T26 (34.20,242.15) baseline_yearly"
-        },
-        {
-            "id": "t27/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA T27 (34.38,242.32) baseline_yearly"
         },
         {
             "id": "t28/baseline_yearly/PT1M/XYZ",
@@ -6834,10 +6270,6 @@
             "title": "IAGA T59 (57.79,207.60) baseline_yearly"
         },
         {
-            "id": "t60/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA T60 (66.63,210.40) baseline_yearly"
-        },
-        {
             "id": "t61/baseline_yearly/PT1M/XYZ",
             "title": "IAGA T61 (37.88,284.56) baseline_yearly"
         },
@@ -6894,20 +6326,8 @@
             "title": "IAGA TIR (8.48,76.95) baseline_yearly"
         },
         {
-            "id": "tkt/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA TKT (41.33,69.62) baseline_yearly"
-        },
-        {
-            "id": "tlk/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA TLK (63.30,209.90) baseline_yearly"
-        },
-        {
             "id": "tnd/baseline_yearly/PT1M/XYZ",
             "title": "IAGA TND (1.29,124.95) baseline_yearly"
-        },
-        {
-            "id": "tol/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA TOL (39.88,355.95) baseline_yearly"
         },
         {
             "id": "top/baseline_yearly/PT1M/XYZ",
@@ -6936,10 +6356,6 @@
         {
             "id": "tuc/baseline_yearly/PT1M/XYZ",
             "title": "IAGA TUC (32.17,249.27) baseline_yearly"
-        },
-        {
-            "id": "tul/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA TUL (35.92,264.22) baseline_yearly"
         },
         {
             "id": "twn/baseline_yearly/PT1M/XYZ",
@@ -6998,28 +6414,12 @@
             "title": "IAGA VSS (-22.40,316.35) baseline_yearly"
         },
         {
-            "id": "vyh/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA VYH (48.49,18.84) baseline_yearly"
-        },
-        {
             "id": "w01/baseline_yearly/PT1M/XYZ",
             "title": "IAGA W01 (-41.55,147.21) baseline_yearly"
         },
         {
             "id": "w02/baseline_yearly/PT1M/XYZ",
             "title": "IAGA W02 (-29.03,167.97) baseline_yearly"
-        },
-        {
-            "id": "w03/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA W03 (-2.70,141.30) baseline_yearly"
-        },
-        {
-            "id": "w04/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA W04 (-66.28,111.53) baseline_yearly"
-        },
-        {
-            "id": "w05/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA W05 (-68.58,77.96) baseline_yearly"
         },
         {
             "id": "wad/baseline_yearly/PT1M/XYZ",
@@ -7054,10 +6454,6 @@
             "title": "IAGA WSE (66.55,33.10) baseline_yearly"
         },
         {
-            "id": "wtk/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA WTK (-7.56,112.63) baseline_yearly"
-        },
-        {
             "id": "y01/baseline_yearly/PT1M/XYZ",
             "title": "IAGA Y01 (-31.80,290.71) baseline_yearly"
         },
@@ -7068,10 +6464,6 @@
         {
             "id": "y03/baseline_yearly/PT1M/XYZ",
             "title": "IAGA Y03 (-15.56,303.93) baseline_yearly"
-        },
-        {
-            "id": "y04/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA Y04 (-2.59,315.79) baseline_yearly"
         },
         {
             "id": "y05/baseline_yearly/PT1M/XYZ",
@@ -7148,10 +6540,6 @@
         {
             "id": "yor/baseline_yearly/PT1M/XYZ",
             "title": "IAGA YOR (53.95,358.95) baseline_yearly"
-        },
-        {
-            "id": "yss/baseline_yearly/PT1M/XYZ",
-            "title": "IAGA YSS (46.95,142.72) baseline_yearly"
         },
         {
             "id": "zag/baseline_yearly/PT1M/XYZ",
@@ -7246,10 +6634,6 @@
             "title": "IAGA ALE (82.50,297.50) baseline_yearly"
         },
         {
-            "id": "alt/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA ALT (69.86,22.96) baseline_yearly"
-        },
-        {
             "id": "ama/baseline_yearly/PT1M/NEZ",
             "title": "IAGA AMA (28.17,129.33) baseline_yearly"
         },
@@ -7298,16 +6682,8 @@
             "title": "IAGA ARC (68.12,214.44) baseline_yearly"
         },
         {
-            "id": "ark/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA ARK (64.60,40.50) baseline_yearly"
-        },
-        {
             "id": "ars/baseline_yearly/PT1M/NEZ",
             "title": "IAGA ARS (56.43,58.57) baseline_yearly"
-        },
-        {
-            "id": "asa/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA ASA (-14.28,170.70) baseline_yearly"
         },
         {
             "id": "asb/baseline_yearly/PT1M/NEZ",
@@ -7316,10 +6692,6 @@
         {
             "id": "asc/baseline_yearly/PT1M/NEZ",
             "title": "IAGA ASC (-7.95,345.62) baseline_yearly"
-        },
-        {
-            "id": "ash/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA ASH (37.95,58.10) baseline_yearly"
         },
         {
             "id": "asp/baseline_yearly/PT1M/NEZ",
@@ -7332,10 +6704,6 @@
         {
             "id": "atu/baseline_yearly/PT1M/NEZ",
             "title": "IAGA ATU (67.93,306.43) baseline_yearly"
-        },
-        {
-            "id": "b01/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA B01 (-64.82,296.52) baseline_yearly"
         },
         {
             "id": "b02/baseline_yearly/PT1M/NEZ",
@@ -7472,10 +6840,6 @@
         {
             "id": "bik/baseline_yearly/PT1M/NEZ",
             "title": "IAGA BIK (-1.08,136.05) baseline_yearly"
-        },
-        {
-            "id": "bji/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA BJI (40.06,116.18) baseline_yearly"
         },
         {
             "id": "bjn/baseline_yearly/PT1M/NEZ",
@@ -7622,10 +6986,6 @@
             "title": "IAGA CER (-33.45,289.40) baseline_yearly"
         },
         {
-            "id": "cgo/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA CGO (64.87,212.14) baseline_yearly"
-        },
-        {
             "id": "chc/baseline_yearly/PT1M/NEZ",
             "title": "IAGA CHC (64.35,276.00) baseline_yearly"
         },
@@ -7682,10 +7042,6 @@
             "title": "IAGA CPS (68.88,180.63) baseline_yearly"
         },
         {
-            "id": "cpy/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA CPY (70.20,235.30) baseline_yearly"
-        },
-        {
             "id": "crk/baseline_yearly/PT1M/NEZ",
             "title": "IAGA CRK (57.09,357.36) baseline_yearly"
         },
@@ -7708,10 +7064,6 @@
         {
             "id": "cul/baseline_yearly/PT1M/NEZ",
             "title": "IAGA CUL (-30.28,149.58) baseline_yearly"
-        },
-        {
-            "id": "cwe/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA CWE (66.17,190.17) baseline_yearly"
         },
         {
             "id": "cy0/baseline_yearly/PT1M/NEZ",
@@ -7778,10 +7130,6 @@
             "title": "IAGA DOU (50.10,4.60) baseline_yearly"
         },
         {
-            "id": "drb/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA DRB (-29.48,30.56) baseline_yearly"
-        },
-        {
             "id": "drv/baseline_yearly/PT1M/NEZ",
             "title": "IAGA DRV (-66.67,140.01) baseline_yearly"
         },
@@ -7800,22 +7148,6 @@
         {
             "id": "dvs/baseline_yearly/PT1M/NEZ",
             "title": "IAGA DVS (-68.58,77.97) baseline_yearly"
-        },
-        {
-            "id": "e01/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA E01 (41.35,23.86) baseline_yearly"
-        },
-        {
-            "id": "e02/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA E02 (39.45,21.97) baseline_yearly"
-        },
-        {
-            "id": "e03/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA E03 (38.63,24.10) baseline_yearly"
-        },
-        {
-            "id": "e04/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA E04 (38.08,23.93) baseline_yearly"
         },
         {
             "id": "e05/baseline_yearly/PT1M/NEZ",
@@ -7856,10 +7188,6 @@
         {
             "id": "esk/baseline_yearly/PT1M/NEZ",
             "title": "IAGA ESK (55.32,356.80) baseline_yearly"
-        },
-        {
-            "id": "eua/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA EUA (80.00,274.10) baseline_yearly"
         },
         {
             "id": "eus/baseline_yearly/PT1M/NEZ",
@@ -7910,16 +7238,8 @@
             "title": "IAGA FSP (61.76,238.77) baseline_yearly"
         },
         {
-            "id": "ftn/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA FTN (58.90,237.20) baseline_yearly"
-        },
-        {
             "id": "fur/baseline_yearly/PT1M/NEZ",
             "title": "IAGA FUR (48.17,11.28) baseline_yearly"
-        },
-        {
-            "id": "fve/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA FVE (58.37,243.98) baseline_yearly"
         },
         {
             "id": "fym/baseline_yearly/PT1M/NEZ",
@@ -7980,10 +7300,6 @@
         {
             "id": "gng/baseline_yearly/PT1M/NEZ",
             "title": "IAGA GNG (-31.36,115.71) baseline_yearly"
-        },
-        {
-            "id": "grk/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA GRK (60.27,29.38) baseline_yearly"
         },
         {
             "id": "gsi/baseline_yearly/PT1M/NEZ",
@@ -8182,10 +7498,6 @@
             "title": "IAGA KAT (-33.68,117.62) baseline_yearly"
         },
         {
-            "id": "kau/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA KAU (69.02,23.05) baseline_yearly"
-        },
-        {
             "id": "kav/baseline_yearly/PT1M/NEZ",
             "title": "IAGA KAV (70.14,216.35) baseline_yearly"
         },
@@ -8200,10 +7512,6 @@
         {
             "id": "kev/baseline_yearly/PT1M/NEZ",
             "title": "IAGA KEV (69.76,27.01) baseline_yearly"
-        },
-        {
-            "id": "kgd/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA KGD (49.82,73.08) baseline_yearly"
         },
         {
             "id": "khb/baseline_yearly/PT1M/NEZ",
@@ -8244,10 +7552,6 @@
         {
             "id": "knz/baseline_yearly/PT1M/NEZ",
             "title": "IAGA KNZ (55.83,48.85) baseline_yearly"
-        },
-        {
-            "id": "kor/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA KOR (7.33,134.50) baseline_yearly"
         },
         {
             "id": "kot/baseline_yearly/PT1M/NEZ",
@@ -8334,10 +7638,6 @@
             "title": "IAGA LMM (-25.92,32.58) baseline_yearly"
         },
         {
-            "id": "lnn/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA LNN (59.95,30.70) baseline_yearly"
-        },
-        {
             "id": "lnp/baseline_yearly/PT1M/NEZ",
             "title": "IAGA LNP (25.00,121.17) baseline_yearly"
         },
@@ -8394,10 +7694,6 @@
             "title": "IAGA M01 (46.87,263.55) baseline_yearly"
         },
         {
-            "id": "m02/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA M02 (45.56,266.75) baseline_yearly"
-        },
-        {
             "id": "m03/baseline_yearly/PT1M/NEZ",
             "title": "IAGA M03 (43.60,264.40) baseline_yearly"
         },
@@ -8430,10 +7726,6 @@
             "title": "IAGA M10 (24.80,260.40) baseline_yearly"
         },
         {
-            "id": "m11/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA M11 (20.70,256.90) baseline_yearly"
-        },
-        {
             "id": "mab/baseline_yearly/PT1M/NEZ",
             "title": "IAGA MAB (50.30,5.68) baseline_yearly"
         },
@@ -8452,10 +7744,6 @@
         {
             "id": "mbo/baseline_yearly/PT1M/NEZ",
             "title": "IAGA MBO (14.38,343.03) baseline_yearly"
-        },
-        {
-            "id": "mce/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA MCE (72.40,326.10) baseline_yearly"
         },
         {
             "id": "mcg/baseline_yearly/PT1M/NEZ",
@@ -8538,10 +7826,6 @@
             "title": "IAGA MSH (42.60,288.52) baseline_yearly"
         },
         {
-            "id": "msk/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA MSK (52.69,34.52) baseline_yearly"
-        },
-        {
             "id": "msr/baseline_yearly/PT1M/NEZ",
             "title": "IAGA MSR (44.37,142.27) baseline_yearly"
         },
@@ -8552,10 +7836,6 @@
         {
             "id": "mut/baseline_yearly/PT1M/NEZ",
             "title": "IAGA MUT (14.37,121.02) baseline_yearly"
-        },
-        {
-            "id": "mzh/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA MZH (49.60,117.40) baseline_yearly"
         },
         {
             "id": "nab/baseline_yearly/PT1M/NEZ",
@@ -8590,10 +7870,6 @@
             "title": "IAGA NGK (52.07,12.68) baseline_yearly"
         },
         {
-            "id": "nkk/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA NKK (45.77,62.12) baseline_yearly"
-        },
-        {
             "id": "nmp/baseline_yearly/PT1M/NEZ",
             "title": "IAGA NMP (-15.09,39.25) baseline_yearly"
         },
@@ -8616,10 +7892,6 @@
         {
             "id": "nur/baseline_yearly/PT1M/NEZ",
             "title": "IAGA NUR (60.50,24.65) baseline_yearly"
-        },
-        {
-            "id": "nvl/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA NVL (-70.78,11.83) baseline_yearly"
         },
         {
             "id": "nvs/baseline_yearly/PT1M/NEZ",
@@ -8746,14 +8018,6 @@
             "title": "IAGA PKR (65.12,212.57) baseline_yearly"
         },
         {
-            "id": "pks/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA PKS (52.50,252.80) baseline_yearly"
-        },
-        {
-            "id": "pnl/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA PNL (-16.68,303.83) baseline_yearly"
-        },
-        {
             "id": "pnt/baseline_yearly/PT1M/NEZ",
             "title": "IAGA PNT (-53.20,289.10) baseline_yearly"
         },
@@ -8768,10 +8032,6 @@
         {
             "id": "ppt/baseline_yearly/PT1M/NEZ",
             "title": "IAGA PPT (-17.57,210.42) baseline_yearly"
-        },
-        {
-            "id": "prg/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA PRG (-69.23,76.23) baseline_yearly"
         },
         {
             "id": "prp/baseline_yearly/PT1M/NEZ",
@@ -8890,24 +8150,12 @@
             "title": "IAGA RPB (66.52,273.77) baseline_yearly"
         },
         {
-            "id": "rsv/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA RSV (55.85,12.45) baseline_yearly"
-        },
-        {
             "id": "rvk/baseline_yearly/PT1M/NEZ",
             "title": "IAGA RVK (64.94,10.99) baseline_yearly"
         },
         {
             "id": "s01/baseline_yearly/PT1M/NEZ",
             "title": "IAGA S01 (64.37,13.36) baseline_yearly"
-        },
-        {
-            "id": "sah/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA SAH (71.98,234.77) baseline_yearly"
-        },
-        {
-            "id": "sas/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA SAS (52.80,253.60) baseline_yearly"
         },
         {
             "id": "sba/baseline_yearly/PT1M/NEZ",
@@ -8962,10 +8210,6 @@
             "title": "IAGA SKT (65.42,307.10) baseline_yearly"
         },
         {
-            "id": "sma/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA SMA (36.99,334.87) baseline_yearly"
-        },
-        {
             "id": "smi/baseline_yearly/PT1M/NEZ",
             "title": "IAGA SMI (60.03,248.07) baseline_yearly"
         },
@@ -9012,10 +8256,6 @@
         {
             "id": "sum/baseline_yearly/PT1M/NEZ",
             "title": "IAGA SUM (72.30,321.70) baseline_yearly"
-        },
-        {
-            "id": "sut/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA SUT (-32.40,20.67) baseline_yearly"
         },
         {
             "id": "suw/baseline_yearly/PT1M/NEZ",
@@ -9076,14 +8316,6 @@
         {
             "id": "t25/baseline_yearly/PT1M/NEZ",
             "title": "IAGA T25 (45.14,241.07) baseline_yearly"
-        },
-        {
-            "id": "t26/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA T26 (34.20,242.15) baseline_yearly"
-        },
-        {
-            "id": "t27/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA T27 (34.38,242.32) baseline_yearly"
         },
         {
             "id": "t28/baseline_yearly/PT1M/NEZ",
@@ -9214,10 +8446,6 @@
             "title": "IAGA T59 (57.79,207.60) baseline_yearly"
         },
         {
-            "id": "t60/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA T60 (66.63,210.40) baseline_yearly"
-        },
-        {
             "id": "t61/baseline_yearly/PT1M/NEZ",
             "title": "IAGA T61 (37.88,284.56) baseline_yearly"
         },
@@ -9274,20 +8502,8 @@
             "title": "IAGA TIR (8.48,76.95) baseline_yearly"
         },
         {
-            "id": "tkt/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA TKT (41.33,69.62) baseline_yearly"
-        },
-        {
-            "id": "tlk/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA TLK (63.30,209.90) baseline_yearly"
-        },
-        {
             "id": "tnd/baseline_yearly/PT1M/NEZ",
             "title": "IAGA TND (1.29,124.95) baseline_yearly"
-        },
-        {
-            "id": "tol/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA TOL (39.88,355.95) baseline_yearly"
         },
         {
             "id": "top/baseline_yearly/PT1M/NEZ",
@@ -9316,10 +8532,6 @@
         {
             "id": "tuc/baseline_yearly/PT1M/NEZ",
             "title": "IAGA TUC (32.17,249.27) baseline_yearly"
-        },
-        {
-            "id": "tul/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA TUL (35.92,264.22) baseline_yearly"
         },
         {
             "id": "twn/baseline_yearly/PT1M/NEZ",
@@ -9378,28 +8590,12 @@
             "title": "IAGA VSS (-22.40,316.35) baseline_yearly"
         },
         {
-            "id": "vyh/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA VYH (48.49,18.84) baseline_yearly"
-        },
-        {
             "id": "w01/baseline_yearly/PT1M/NEZ",
             "title": "IAGA W01 (-41.55,147.21) baseline_yearly"
         },
         {
             "id": "w02/baseline_yearly/PT1M/NEZ",
             "title": "IAGA W02 (-29.03,167.97) baseline_yearly"
-        },
-        {
-            "id": "w03/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA W03 (-2.70,141.30) baseline_yearly"
-        },
-        {
-            "id": "w04/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA W04 (-66.28,111.53) baseline_yearly"
-        },
-        {
-            "id": "w05/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA W05 (-68.58,77.96) baseline_yearly"
         },
         {
             "id": "wad/baseline_yearly/PT1M/NEZ",
@@ -9434,10 +8630,6 @@
             "title": "IAGA WSE (66.55,33.10) baseline_yearly"
         },
         {
-            "id": "wtk/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA WTK (-7.56,112.63) baseline_yearly"
-        },
-        {
             "id": "y01/baseline_yearly/PT1M/NEZ",
             "title": "IAGA Y01 (-31.80,290.71) baseline_yearly"
         },
@@ -9448,10 +8640,6 @@
         {
             "id": "y03/baseline_yearly/PT1M/NEZ",
             "title": "IAGA Y03 (-15.56,303.93) baseline_yearly"
-        },
-        {
-            "id": "y04/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA Y04 (-2.59,315.79) baseline_yearly"
         },
         {
             "id": "y05/baseline_yearly/PT1M/NEZ",
@@ -9528,10 +8716,6 @@
         {
             "id": "yor/baseline_yearly/PT1M/NEZ",
             "title": "IAGA YOR (53.95,358.95) baseline_yearly"
-        },
-        {
-            "id": "yss/baseline_yearly/PT1M/NEZ",
-            "title": "IAGA YSS (46.95,142.72) baseline_yearly"
         },
         {
             "id": "zag/baseline_yearly/PT1M/NEZ",
@@ -9626,10 +8810,6 @@
             "title": "IAGA ALE (82.50,297.50) baseline_none"
         },
         {
-            "id": "alt/baseline_none/PT1M/XYZ",
-            "title": "IAGA ALT (69.86,22.96) baseline_none"
-        },
-        {
             "id": "ama/baseline_none/PT1M/XYZ",
             "title": "IAGA AMA (28.17,129.33) baseline_none"
         },
@@ -9678,16 +8858,8 @@
             "title": "IAGA ARC (68.12,214.44) baseline_none"
         },
         {
-            "id": "ark/baseline_none/PT1M/XYZ",
-            "title": "IAGA ARK (64.60,40.50) baseline_none"
-        },
-        {
             "id": "ars/baseline_none/PT1M/XYZ",
             "title": "IAGA ARS (56.43,58.57) baseline_none"
-        },
-        {
-            "id": "asa/baseline_none/PT1M/XYZ",
-            "title": "IAGA ASA (-14.28,170.70) baseline_none"
         },
         {
             "id": "asb/baseline_none/PT1M/XYZ",
@@ -9696,10 +8868,6 @@
         {
             "id": "asc/baseline_none/PT1M/XYZ",
             "title": "IAGA ASC (-7.95,345.62) baseline_none"
-        },
-        {
-            "id": "ash/baseline_none/PT1M/XYZ",
-            "title": "IAGA ASH (37.95,58.10) baseline_none"
         },
         {
             "id": "asp/baseline_none/PT1M/XYZ",
@@ -9712,10 +8880,6 @@
         {
             "id": "atu/baseline_none/PT1M/XYZ",
             "title": "IAGA ATU (67.93,306.43) baseline_none"
-        },
-        {
-            "id": "b01/baseline_none/PT1M/XYZ",
-            "title": "IAGA B01 (-64.82,296.52) baseline_none"
         },
         {
             "id": "b02/baseline_none/PT1M/XYZ",
@@ -9852,10 +9016,6 @@
         {
             "id": "bik/baseline_none/PT1M/XYZ",
             "title": "IAGA BIK (-1.08,136.05) baseline_none"
-        },
-        {
-            "id": "bji/baseline_none/PT1M/XYZ",
-            "title": "IAGA BJI (40.06,116.18) baseline_none"
         },
         {
             "id": "bjn/baseline_none/PT1M/XYZ",
@@ -10002,10 +9162,6 @@
             "title": "IAGA CER (-33.45,289.40) baseline_none"
         },
         {
-            "id": "cgo/baseline_none/PT1M/XYZ",
-            "title": "IAGA CGO (64.87,212.14) baseline_none"
-        },
-        {
             "id": "chc/baseline_none/PT1M/XYZ",
             "title": "IAGA CHC (64.35,276.00) baseline_none"
         },
@@ -10062,10 +9218,6 @@
             "title": "IAGA CPS (68.88,180.63) baseline_none"
         },
         {
-            "id": "cpy/baseline_none/PT1M/XYZ",
-            "title": "IAGA CPY (70.20,235.30) baseline_none"
-        },
-        {
             "id": "crk/baseline_none/PT1M/XYZ",
             "title": "IAGA CRK (57.09,357.36) baseline_none"
         },
@@ -10088,10 +9240,6 @@
         {
             "id": "cul/baseline_none/PT1M/XYZ",
             "title": "IAGA CUL (-30.28,149.58) baseline_none"
-        },
-        {
-            "id": "cwe/baseline_none/PT1M/XYZ",
-            "title": "IAGA CWE (66.17,190.17) baseline_none"
         },
         {
             "id": "cy0/baseline_none/PT1M/XYZ",
@@ -10158,10 +9306,6 @@
             "title": "IAGA DOU (50.10,4.60) baseline_none"
         },
         {
-            "id": "drb/baseline_none/PT1M/XYZ",
-            "title": "IAGA DRB (-29.48,30.56) baseline_none"
-        },
-        {
             "id": "drv/baseline_none/PT1M/XYZ",
             "title": "IAGA DRV (-66.67,140.01) baseline_none"
         },
@@ -10180,22 +9324,6 @@
         {
             "id": "dvs/baseline_none/PT1M/XYZ",
             "title": "IAGA DVS (-68.58,77.97) baseline_none"
-        },
-        {
-            "id": "e01/baseline_none/PT1M/XYZ",
-            "title": "IAGA E01 (41.35,23.86) baseline_none"
-        },
-        {
-            "id": "e02/baseline_none/PT1M/XYZ",
-            "title": "IAGA E02 (39.45,21.97) baseline_none"
-        },
-        {
-            "id": "e03/baseline_none/PT1M/XYZ",
-            "title": "IAGA E03 (38.63,24.10) baseline_none"
-        },
-        {
-            "id": "e04/baseline_none/PT1M/XYZ",
-            "title": "IAGA E04 (38.08,23.93) baseline_none"
         },
         {
             "id": "e05/baseline_none/PT1M/XYZ",
@@ -10236,10 +9364,6 @@
         {
             "id": "esk/baseline_none/PT1M/XYZ",
             "title": "IAGA ESK (55.32,356.80) baseline_none"
-        },
-        {
-            "id": "eua/baseline_none/PT1M/XYZ",
-            "title": "IAGA EUA (80.00,274.10) baseline_none"
         },
         {
             "id": "eus/baseline_none/PT1M/XYZ",
@@ -10290,16 +9414,8 @@
             "title": "IAGA FSP (61.76,238.77) baseline_none"
         },
         {
-            "id": "ftn/baseline_none/PT1M/XYZ",
-            "title": "IAGA FTN (58.90,237.20) baseline_none"
-        },
-        {
             "id": "fur/baseline_none/PT1M/XYZ",
             "title": "IAGA FUR (48.17,11.28) baseline_none"
-        },
-        {
-            "id": "fve/baseline_none/PT1M/XYZ",
-            "title": "IAGA FVE (58.37,243.98) baseline_none"
         },
         {
             "id": "fym/baseline_none/PT1M/XYZ",
@@ -10360,10 +9476,6 @@
         {
             "id": "gng/baseline_none/PT1M/XYZ",
             "title": "IAGA GNG (-31.36,115.71) baseline_none"
-        },
-        {
-            "id": "grk/baseline_none/PT1M/XYZ",
-            "title": "IAGA GRK (60.27,29.38) baseline_none"
         },
         {
             "id": "gsi/baseline_none/PT1M/XYZ",
@@ -10562,10 +9674,6 @@
             "title": "IAGA KAT (-33.68,117.62) baseline_none"
         },
         {
-            "id": "kau/baseline_none/PT1M/XYZ",
-            "title": "IAGA KAU (69.02,23.05) baseline_none"
-        },
-        {
             "id": "kav/baseline_none/PT1M/XYZ",
             "title": "IAGA KAV (70.14,216.35) baseline_none"
         },
@@ -10580,10 +9688,6 @@
         {
             "id": "kev/baseline_none/PT1M/XYZ",
             "title": "IAGA KEV (69.76,27.01) baseline_none"
-        },
-        {
-            "id": "kgd/baseline_none/PT1M/XYZ",
-            "title": "IAGA KGD (49.82,73.08) baseline_none"
         },
         {
             "id": "khb/baseline_none/PT1M/XYZ",
@@ -10624,10 +9728,6 @@
         {
             "id": "knz/baseline_none/PT1M/XYZ",
             "title": "IAGA KNZ (55.83,48.85) baseline_none"
-        },
-        {
-            "id": "kor/baseline_none/PT1M/XYZ",
-            "title": "IAGA KOR (7.33,134.50) baseline_none"
         },
         {
             "id": "kot/baseline_none/PT1M/XYZ",
@@ -10714,10 +9814,6 @@
             "title": "IAGA LMM (-25.92,32.58) baseline_none"
         },
         {
-            "id": "lnn/baseline_none/PT1M/XYZ",
-            "title": "IAGA LNN (59.95,30.70) baseline_none"
-        },
-        {
             "id": "lnp/baseline_none/PT1M/XYZ",
             "title": "IAGA LNP (25.00,121.17) baseline_none"
         },
@@ -10774,10 +9870,6 @@
             "title": "IAGA M01 (46.87,263.55) baseline_none"
         },
         {
-            "id": "m02/baseline_none/PT1M/XYZ",
-            "title": "IAGA M02 (45.56,266.75) baseline_none"
-        },
-        {
             "id": "m03/baseline_none/PT1M/XYZ",
             "title": "IAGA M03 (43.60,264.40) baseline_none"
         },
@@ -10810,10 +9902,6 @@
             "title": "IAGA M10 (24.80,260.40) baseline_none"
         },
         {
-            "id": "m11/baseline_none/PT1M/XYZ",
-            "title": "IAGA M11 (20.70,256.90) baseline_none"
-        },
-        {
             "id": "mab/baseline_none/PT1M/XYZ",
             "title": "IAGA MAB (50.30,5.68) baseline_none"
         },
@@ -10832,10 +9920,6 @@
         {
             "id": "mbo/baseline_none/PT1M/XYZ",
             "title": "IAGA MBO (14.38,343.03) baseline_none"
-        },
-        {
-            "id": "mce/baseline_none/PT1M/XYZ",
-            "title": "IAGA MCE (72.40,326.10) baseline_none"
         },
         {
             "id": "mcg/baseline_none/PT1M/XYZ",
@@ -10918,10 +10002,6 @@
             "title": "IAGA MSH (42.60,288.52) baseline_none"
         },
         {
-            "id": "msk/baseline_none/PT1M/XYZ",
-            "title": "IAGA MSK (52.69,34.52) baseline_none"
-        },
-        {
             "id": "msr/baseline_none/PT1M/XYZ",
             "title": "IAGA MSR (44.37,142.27) baseline_none"
         },
@@ -10932,10 +10012,6 @@
         {
             "id": "mut/baseline_none/PT1M/XYZ",
             "title": "IAGA MUT (14.37,121.02) baseline_none"
-        },
-        {
-            "id": "mzh/baseline_none/PT1M/XYZ",
-            "title": "IAGA MZH (49.60,117.40) baseline_none"
         },
         {
             "id": "nab/baseline_none/PT1M/XYZ",
@@ -10970,10 +10046,6 @@
             "title": "IAGA NGK (52.07,12.68) baseline_none"
         },
         {
-            "id": "nkk/baseline_none/PT1M/XYZ",
-            "title": "IAGA NKK (45.77,62.12) baseline_none"
-        },
-        {
             "id": "nmp/baseline_none/PT1M/XYZ",
             "title": "IAGA NMP (-15.09,39.25) baseline_none"
         },
@@ -10996,10 +10068,6 @@
         {
             "id": "nur/baseline_none/PT1M/XYZ",
             "title": "IAGA NUR (60.50,24.65) baseline_none"
-        },
-        {
-            "id": "nvl/baseline_none/PT1M/XYZ",
-            "title": "IAGA NVL (-70.78,11.83) baseline_none"
         },
         {
             "id": "nvs/baseline_none/PT1M/XYZ",
@@ -11126,14 +10194,6 @@
             "title": "IAGA PKR (65.12,212.57) baseline_none"
         },
         {
-            "id": "pks/baseline_none/PT1M/XYZ",
-            "title": "IAGA PKS (52.50,252.80) baseline_none"
-        },
-        {
-            "id": "pnl/baseline_none/PT1M/XYZ",
-            "title": "IAGA PNL (-16.68,303.83) baseline_none"
-        },
-        {
             "id": "pnt/baseline_none/PT1M/XYZ",
             "title": "IAGA PNT (-53.20,289.10) baseline_none"
         },
@@ -11148,10 +10208,6 @@
         {
             "id": "ppt/baseline_none/PT1M/XYZ",
             "title": "IAGA PPT (-17.57,210.42) baseline_none"
-        },
-        {
-            "id": "prg/baseline_none/PT1M/XYZ",
-            "title": "IAGA PRG (-69.23,76.23) baseline_none"
         },
         {
             "id": "prp/baseline_none/PT1M/XYZ",
@@ -11270,24 +10326,12 @@
             "title": "IAGA RPB (66.52,273.77) baseline_none"
         },
         {
-            "id": "rsv/baseline_none/PT1M/XYZ",
-            "title": "IAGA RSV (55.85,12.45) baseline_none"
-        },
-        {
             "id": "rvk/baseline_none/PT1M/XYZ",
             "title": "IAGA RVK (64.94,10.99) baseline_none"
         },
         {
             "id": "s01/baseline_none/PT1M/XYZ",
             "title": "IAGA S01 (64.37,13.36) baseline_none"
-        },
-        {
-            "id": "sah/baseline_none/PT1M/XYZ",
-            "title": "IAGA SAH (71.98,234.77) baseline_none"
-        },
-        {
-            "id": "sas/baseline_none/PT1M/XYZ",
-            "title": "IAGA SAS (52.80,253.60) baseline_none"
         },
         {
             "id": "sba/baseline_none/PT1M/XYZ",
@@ -11342,10 +10386,6 @@
             "title": "IAGA SKT (65.42,307.10) baseline_none"
         },
         {
-            "id": "sma/baseline_none/PT1M/XYZ",
-            "title": "IAGA SMA (36.99,334.87) baseline_none"
-        },
-        {
             "id": "smi/baseline_none/PT1M/XYZ",
             "title": "IAGA SMI (60.03,248.07) baseline_none"
         },
@@ -11392,10 +10432,6 @@
         {
             "id": "sum/baseline_none/PT1M/XYZ",
             "title": "IAGA SUM (72.30,321.70) baseline_none"
-        },
-        {
-            "id": "sut/baseline_none/PT1M/XYZ",
-            "title": "IAGA SUT (-32.40,20.67) baseline_none"
         },
         {
             "id": "suw/baseline_none/PT1M/XYZ",
@@ -11456,14 +10492,6 @@
         {
             "id": "t25/baseline_none/PT1M/XYZ",
             "title": "IAGA T25 (45.14,241.07) baseline_none"
-        },
-        {
-            "id": "t26/baseline_none/PT1M/XYZ",
-            "title": "IAGA T26 (34.20,242.15) baseline_none"
-        },
-        {
-            "id": "t27/baseline_none/PT1M/XYZ",
-            "title": "IAGA T27 (34.38,242.32) baseline_none"
         },
         {
             "id": "t28/baseline_none/PT1M/XYZ",
@@ -11594,10 +10622,6 @@
             "title": "IAGA T59 (57.79,207.60) baseline_none"
         },
         {
-            "id": "t60/baseline_none/PT1M/XYZ",
-            "title": "IAGA T60 (66.63,210.40) baseline_none"
-        },
-        {
             "id": "t61/baseline_none/PT1M/XYZ",
             "title": "IAGA T61 (37.88,284.56) baseline_none"
         },
@@ -11654,20 +10678,8 @@
             "title": "IAGA TIR (8.48,76.95) baseline_none"
         },
         {
-            "id": "tkt/baseline_none/PT1M/XYZ",
-            "title": "IAGA TKT (41.33,69.62) baseline_none"
-        },
-        {
-            "id": "tlk/baseline_none/PT1M/XYZ",
-            "title": "IAGA TLK (63.30,209.90) baseline_none"
-        },
-        {
             "id": "tnd/baseline_none/PT1M/XYZ",
             "title": "IAGA TND (1.29,124.95) baseline_none"
-        },
-        {
-            "id": "tol/baseline_none/PT1M/XYZ",
-            "title": "IAGA TOL (39.88,355.95) baseline_none"
         },
         {
             "id": "top/baseline_none/PT1M/XYZ",
@@ -11696,10 +10708,6 @@
         {
             "id": "tuc/baseline_none/PT1M/XYZ",
             "title": "IAGA TUC (32.17,249.27) baseline_none"
-        },
-        {
-            "id": "tul/baseline_none/PT1M/XYZ",
-            "title": "IAGA TUL (35.92,264.22) baseline_none"
         },
         {
             "id": "twn/baseline_none/PT1M/XYZ",
@@ -11758,28 +10766,12 @@
             "title": "IAGA VSS (-22.40,316.35) baseline_none"
         },
         {
-            "id": "vyh/baseline_none/PT1M/XYZ",
-            "title": "IAGA VYH (48.49,18.84) baseline_none"
-        },
-        {
             "id": "w01/baseline_none/PT1M/XYZ",
             "title": "IAGA W01 (-41.55,147.21) baseline_none"
         },
         {
             "id": "w02/baseline_none/PT1M/XYZ",
             "title": "IAGA W02 (-29.03,167.97) baseline_none"
-        },
-        {
-            "id": "w03/baseline_none/PT1M/XYZ",
-            "title": "IAGA W03 (-2.70,141.30) baseline_none"
-        },
-        {
-            "id": "w04/baseline_none/PT1M/XYZ",
-            "title": "IAGA W04 (-66.28,111.53) baseline_none"
-        },
-        {
-            "id": "w05/baseline_none/PT1M/XYZ",
-            "title": "IAGA W05 (-68.58,77.96) baseline_none"
         },
         {
             "id": "wad/baseline_none/PT1M/XYZ",
@@ -11814,10 +10806,6 @@
             "title": "IAGA WSE (66.55,33.10) baseline_none"
         },
         {
-            "id": "wtk/baseline_none/PT1M/XYZ",
-            "title": "IAGA WTK (-7.56,112.63) baseline_none"
-        },
-        {
             "id": "y01/baseline_none/PT1M/XYZ",
             "title": "IAGA Y01 (-31.80,290.71) baseline_none"
         },
@@ -11828,10 +10816,6 @@
         {
             "id": "y03/baseline_none/PT1M/XYZ",
             "title": "IAGA Y03 (-15.56,303.93) baseline_none"
-        },
-        {
-            "id": "y04/baseline_none/PT1M/XYZ",
-            "title": "IAGA Y04 (-2.59,315.79) baseline_none"
         },
         {
             "id": "y05/baseline_none/PT1M/XYZ",
@@ -11908,10 +10892,6 @@
         {
             "id": "yor/baseline_none/PT1M/XYZ",
             "title": "IAGA YOR (53.95,358.95) baseline_none"
-        },
-        {
-            "id": "yss/baseline_none/PT1M/XYZ",
-            "title": "IAGA YSS (46.95,142.72) baseline_none"
         },
         {
             "id": "zag/baseline_none/PT1M/XYZ",
@@ -12006,10 +10986,6 @@
             "title": "IAGA ALE (82.50,297.50) baseline_none"
         },
         {
-            "id": "alt/baseline_none/PT1M/NEZ",
-            "title": "IAGA ALT (69.86,22.96) baseline_none"
-        },
-        {
             "id": "ama/baseline_none/PT1M/NEZ",
             "title": "IAGA AMA (28.17,129.33) baseline_none"
         },
@@ -12058,16 +11034,8 @@
             "title": "IAGA ARC (68.12,214.44) baseline_none"
         },
         {
-            "id": "ark/baseline_none/PT1M/NEZ",
-            "title": "IAGA ARK (64.60,40.50) baseline_none"
-        },
-        {
             "id": "ars/baseline_none/PT1M/NEZ",
             "title": "IAGA ARS (56.43,58.57) baseline_none"
-        },
-        {
-            "id": "asa/baseline_none/PT1M/NEZ",
-            "title": "IAGA ASA (-14.28,170.70) baseline_none"
         },
         {
             "id": "asb/baseline_none/PT1M/NEZ",
@@ -12076,10 +11044,6 @@
         {
             "id": "asc/baseline_none/PT1M/NEZ",
             "title": "IAGA ASC (-7.95,345.62) baseline_none"
-        },
-        {
-            "id": "ash/baseline_none/PT1M/NEZ",
-            "title": "IAGA ASH (37.95,58.10) baseline_none"
         },
         {
             "id": "asp/baseline_none/PT1M/NEZ",
@@ -12092,10 +11056,6 @@
         {
             "id": "atu/baseline_none/PT1M/NEZ",
             "title": "IAGA ATU (67.93,306.43) baseline_none"
-        },
-        {
-            "id": "b01/baseline_none/PT1M/NEZ",
-            "title": "IAGA B01 (-64.82,296.52) baseline_none"
         },
         {
             "id": "b02/baseline_none/PT1M/NEZ",
@@ -12232,10 +11192,6 @@
         {
             "id": "bik/baseline_none/PT1M/NEZ",
             "title": "IAGA BIK (-1.08,136.05) baseline_none"
-        },
-        {
-            "id": "bji/baseline_none/PT1M/NEZ",
-            "title": "IAGA BJI (40.06,116.18) baseline_none"
         },
         {
             "id": "bjn/baseline_none/PT1M/NEZ",
@@ -12382,10 +11338,6 @@
             "title": "IAGA CER (-33.45,289.40) baseline_none"
         },
         {
-            "id": "cgo/baseline_none/PT1M/NEZ",
-            "title": "IAGA CGO (64.87,212.14) baseline_none"
-        },
-        {
             "id": "chc/baseline_none/PT1M/NEZ",
             "title": "IAGA CHC (64.35,276.00) baseline_none"
         },
@@ -12442,10 +11394,6 @@
             "title": "IAGA CPS (68.88,180.63) baseline_none"
         },
         {
-            "id": "cpy/baseline_none/PT1M/NEZ",
-            "title": "IAGA CPY (70.20,235.30) baseline_none"
-        },
-        {
             "id": "crk/baseline_none/PT1M/NEZ",
             "title": "IAGA CRK (57.09,357.36) baseline_none"
         },
@@ -12468,10 +11416,6 @@
         {
             "id": "cul/baseline_none/PT1M/NEZ",
             "title": "IAGA CUL (-30.28,149.58) baseline_none"
-        },
-        {
-            "id": "cwe/baseline_none/PT1M/NEZ",
-            "title": "IAGA CWE (66.17,190.17) baseline_none"
         },
         {
             "id": "cy0/baseline_none/PT1M/NEZ",
@@ -12538,10 +11482,6 @@
             "title": "IAGA DOU (50.10,4.60) baseline_none"
         },
         {
-            "id": "drb/baseline_none/PT1M/NEZ",
-            "title": "IAGA DRB (-29.48,30.56) baseline_none"
-        },
-        {
             "id": "drv/baseline_none/PT1M/NEZ",
             "title": "IAGA DRV (-66.67,140.01) baseline_none"
         },
@@ -12560,22 +11500,6 @@
         {
             "id": "dvs/baseline_none/PT1M/NEZ",
             "title": "IAGA DVS (-68.58,77.97) baseline_none"
-        },
-        {
-            "id": "e01/baseline_none/PT1M/NEZ",
-            "title": "IAGA E01 (41.35,23.86) baseline_none"
-        },
-        {
-            "id": "e02/baseline_none/PT1M/NEZ",
-            "title": "IAGA E02 (39.45,21.97) baseline_none"
-        },
-        {
-            "id": "e03/baseline_none/PT1M/NEZ",
-            "title": "IAGA E03 (38.63,24.10) baseline_none"
-        },
-        {
-            "id": "e04/baseline_none/PT1M/NEZ",
-            "title": "IAGA E04 (38.08,23.93) baseline_none"
         },
         {
             "id": "e05/baseline_none/PT1M/NEZ",
@@ -12616,10 +11540,6 @@
         {
             "id": "esk/baseline_none/PT1M/NEZ",
             "title": "IAGA ESK (55.32,356.80) baseline_none"
-        },
-        {
-            "id": "eua/baseline_none/PT1M/NEZ",
-            "title": "IAGA EUA (80.00,274.10) baseline_none"
         },
         {
             "id": "eus/baseline_none/PT1M/NEZ",
@@ -12670,16 +11590,8 @@
             "title": "IAGA FSP (61.76,238.77) baseline_none"
         },
         {
-            "id": "ftn/baseline_none/PT1M/NEZ",
-            "title": "IAGA FTN (58.90,237.20) baseline_none"
-        },
-        {
             "id": "fur/baseline_none/PT1M/NEZ",
             "title": "IAGA FUR (48.17,11.28) baseline_none"
-        },
-        {
-            "id": "fve/baseline_none/PT1M/NEZ",
-            "title": "IAGA FVE (58.37,243.98) baseline_none"
         },
         {
             "id": "fym/baseline_none/PT1M/NEZ",
@@ -12740,10 +11652,6 @@
         {
             "id": "gng/baseline_none/PT1M/NEZ",
             "title": "IAGA GNG (-31.36,115.71) baseline_none"
-        },
-        {
-            "id": "grk/baseline_none/PT1M/NEZ",
-            "title": "IAGA GRK (60.27,29.38) baseline_none"
         },
         {
             "id": "gsi/baseline_none/PT1M/NEZ",
@@ -12942,10 +11850,6 @@
             "title": "IAGA KAT (-33.68,117.62) baseline_none"
         },
         {
-            "id": "kau/baseline_none/PT1M/NEZ",
-            "title": "IAGA KAU (69.02,23.05) baseline_none"
-        },
-        {
             "id": "kav/baseline_none/PT1M/NEZ",
             "title": "IAGA KAV (70.14,216.35) baseline_none"
         },
@@ -12960,10 +11864,6 @@
         {
             "id": "kev/baseline_none/PT1M/NEZ",
             "title": "IAGA KEV (69.76,27.01) baseline_none"
-        },
-        {
-            "id": "kgd/baseline_none/PT1M/NEZ",
-            "title": "IAGA KGD (49.82,73.08) baseline_none"
         },
         {
             "id": "khb/baseline_none/PT1M/NEZ",
@@ -13004,10 +11904,6 @@
         {
             "id": "knz/baseline_none/PT1M/NEZ",
             "title": "IAGA KNZ (55.83,48.85) baseline_none"
-        },
-        {
-            "id": "kor/baseline_none/PT1M/NEZ",
-            "title": "IAGA KOR (7.33,134.50) baseline_none"
         },
         {
             "id": "kot/baseline_none/PT1M/NEZ",
@@ -13094,10 +11990,6 @@
             "title": "IAGA LMM (-25.92,32.58) baseline_none"
         },
         {
-            "id": "lnn/baseline_none/PT1M/NEZ",
-            "title": "IAGA LNN (59.95,30.70) baseline_none"
-        },
-        {
             "id": "lnp/baseline_none/PT1M/NEZ",
             "title": "IAGA LNP (25.00,121.17) baseline_none"
         },
@@ -13154,10 +12046,6 @@
             "title": "IAGA M01 (46.87,263.55) baseline_none"
         },
         {
-            "id": "m02/baseline_none/PT1M/NEZ",
-            "title": "IAGA M02 (45.56,266.75) baseline_none"
-        },
-        {
             "id": "m03/baseline_none/PT1M/NEZ",
             "title": "IAGA M03 (43.60,264.40) baseline_none"
         },
@@ -13190,10 +12078,6 @@
             "title": "IAGA M10 (24.80,260.40) baseline_none"
         },
         {
-            "id": "m11/baseline_none/PT1M/NEZ",
-            "title": "IAGA M11 (20.70,256.90) baseline_none"
-        },
-        {
             "id": "mab/baseline_none/PT1M/NEZ",
             "title": "IAGA MAB (50.30,5.68) baseline_none"
         },
@@ -13212,10 +12096,6 @@
         {
             "id": "mbo/baseline_none/PT1M/NEZ",
             "title": "IAGA MBO (14.38,343.03) baseline_none"
-        },
-        {
-            "id": "mce/baseline_none/PT1M/NEZ",
-            "title": "IAGA MCE (72.40,326.10) baseline_none"
         },
         {
             "id": "mcg/baseline_none/PT1M/NEZ",
@@ -13298,10 +12178,6 @@
             "title": "IAGA MSH (42.60,288.52) baseline_none"
         },
         {
-            "id": "msk/baseline_none/PT1M/NEZ",
-            "title": "IAGA MSK (52.69,34.52) baseline_none"
-        },
-        {
             "id": "msr/baseline_none/PT1M/NEZ",
             "title": "IAGA MSR (44.37,142.27) baseline_none"
         },
@@ -13312,10 +12188,6 @@
         {
             "id": "mut/baseline_none/PT1M/NEZ",
             "title": "IAGA MUT (14.37,121.02) baseline_none"
-        },
-        {
-            "id": "mzh/baseline_none/PT1M/NEZ",
-            "title": "IAGA MZH (49.60,117.40) baseline_none"
         },
         {
             "id": "nab/baseline_none/PT1M/NEZ",
@@ -13350,10 +12222,6 @@
             "title": "IAGA NGK (52.07,12.68) baseline_none"
         },
         {
-            "id": "nkk/baseline_none/PT1M/NEZ",
-            "title": "IAGA NKK (45.77,62.12) baseline_none"
-        },
-        {
             "id": "nmp/baseline_none/PT1M/NEZ",
             "title": "IAGA NMP (-15.09,39.25) baseline_none"
         },
@@ -13376,10 +12244,6 @@
         {
             "id": "nur/baseline_none/PT1M/NEZ",
             "title": "IAGA NUR (60.50,24.65) baseline_none"
-        },
-        {
-            "id": "nvl/baseline_none/PT1M/NEZ",
-            "title": "IAGA NVL (-70.78,11.83) baseline_none"
         },
         {
             "id": "nvs/baseline_none/PT1M/NEZ",
@@ -13506,14 +12370,6 @@
             "title": "IAGA PKR (65.12,212.57) baseline_none"
         },
         {
-            "id": "pks/baseline_none/PT1M/NEZ",
-            "title": "IAGA PKS (52.50,252.80) baseline_none"
-        },
-        {
-            "id": "pnl/baseline_none/PT1M/NEZ",
-            "title": "IAGA PNL (-16.68,303.83) baseline_none"
-        },
-        {
             "id": "pnt/baseline_none/PT1M/NEZ",
             "title": "IAGA PNT (-53.20,289.10) baseline_none"
         },
@@ -13528,10 +12384,6 @@
         {
             "id": "ppt/baseline_none/PT1M/NEZ",
             "title": "IAGA PPT (-17.57,210.42) baseline_none"
-        },
-        {
-            "id": "prg/baseline_none/PT1M/NEZ",
-            "title": "IAGA PRG (-69.23,76.23) baseline_none"
         },
         {
             "id": "prp/baseline_none/PT1M/NEZ",
@@ -13650,24 +12502,12 @@
             "title": "IAGA RPB (66.52,273.77) baseline_none"
         },
         {
-            "id": "rsv/baseline_none/PT1M/NEZ",
-            "title": "IAGA RSV (55.85,12.45) baseline_none"
-        },
-        {
             "id": "rvk/baseline_none/PT1M/NEZ",
             "title": "IAGA RVK (64.94,10.99) baseline_none"
         },
         {
             "id": "s01/baseline_none/PT1M/NEZ",
             "title": "IAGA S01 (64.37,13.36) baseline_none"
-        },
-        {
-            "id": "sah/baseline_none/PT1M/NEZ",
-            "title": "IAGA SAH (71.98,234.77) baseline_none"
-        },
-        {
-            "id": "sas/baseline_none/PT1M/NEZ",
-            "title": "IAGA SAS (52.80,253.60) baseline_none"
         },
         {
             "id": "sba/baseline_none/PT1M/NEZ",
@@ -13722,10 +12562,6 @@
             "title": "IAGA SKT (65.42,307.10) baseline_none"
         },
         {
-            "id": "sma/baseline_none/PT1M/NEZ",
-            "title": "IAGA SMA (36.99,334.87) baseline_none"
-        },
-        {
             "id": "smi/baseline_none/PT1M/NEZ",
             "title": "IAGA SMI (60.03,248.07) baseline_none"
         },
@@ -13772,10 +12608,6 @@
         {
             "id": "sum/baseline_none/PT1M/NEZ",
             "title": "IAGA SUM (72.30,321.70) baseline_none"
-        },
-        {
-            "id": "sut/baseline_none/PT1M/NEZ",
-            "title": "IAGA SUT (-32.40,20.67) baseline_none"
         },
         {
             "id": "suw/baseline_none/PT1M/NEZ",
@@ -13836,14 +12668,6 @@
         {
             "id": "t25/baseline_none/PT1M/NEZ",
             "title": "IAGA T25 (45.14,241.07) baseline_none"
-        },
-        {
-            "id": "t26/baseline_none/PT1M/NEZ",
-            "title": "IAGA T26 (34.20,242.15) baseline_none"
-        },
-        {
-            "id": "t27/baseline_none/PT1M/NEZ",
-            "title": "IAGA T27 (34.38,242.32) baseline_none"
         },
         {
             "id": "t28/baseline_none/PT1M/NEZ",
@@ -13974,10 +12798,6 @@
             "title": "IAGA T59 (57.79,207.60) baseline_none"
         },
         {
-            "id": "t60/baseline_none/PT1M/NEZ",
-            "title": "IAGA T60 (66.63,210.40) baseline_none"
-        },
-        {
             "id": "t61/baseline_none/PT1M/NEZ",
             "title": "IAGA T61 (37.88,284.56) baseline_none"
         },
@@ -14034,20 +12854,8 @@
             "title": "IAGA TIR (8.48,76.95) baseline_none"
         },
         {
-            "id": "tkt/baseline_none/PT1M/NEZ",
-            "title": "IAGA TKT (41.33,69.62) baseline_none"
-        },
-        {
-            "id": "tlk/baseline_none/PT1M/NEZ",
-            "title": "IAGA TLK (63.30,209.90) baseline_none"
-        },
-        {
             "id": "tnd/baseline_none/PT1M/NEZ",
             "title": "IAGA TND (1.29,124.95) baseline_none"
-        },
-        {
-            "id": "tol/baseline_none/PT1M/NEZ",
-            "title": "IAGA TOL (39.88,355.95) baseline_none"
         },
         {
             "id": "top/baseline_none/PT1M/NEZ",
@@ -14076,10 +12884,6 @@
         {
             "id": "tuc/baseline_none/PT1M/NEZ",
             "title": "IAGA TUC (32.17,249.27) baseline_none"
-        },
-        {
-            "id": "tul/baseline_none/PT1M/NEZ",
-            "title": "IAGA TUL (35.92,264.22) baseline_none"
         },
         {
             "id": "twn/baseline_none/PT1M/NEZ",
@@ -14138,28 +12942,12 @@
             "title": "IAGA VSS (-22.40,316.35) baseline_none"
         },
         {
-            "id": "vyh/baseline_none/PT1M/NEZ",
-            "title": "IAGA VYH (48.49,18.84) baseline_none"
-        },
-        {
             "id": "w01/baseline_none/PT1M/NEZ",
             "title": "IAGA W01 (-41.55,147.21) baseline_none"
         },
         {
             "id": "w02/baseline_none/PT1M/NEZ",
             "title": "IAGA W02 (-29.03,167.97) baseline_none"
-        },
-        {
-            "id": "w03/baseline_none/PT1M/NEZ",
-            "title": "IAGA W03 (-2.70,141.30) baseline_none"
-        },
-        {
-            "id": "w04/baseline_none/PT1M/NEZ",
-            "title": "IAGA W04 (-66.28,111.53) baseline_none"
-        },
-        {
-            "id": "w05/baseline_none/PT1M/NEZ",
-            "title": "IAGA W05 (-68.58,77.96) baseline_none"
         },
         {
             "id": "wad/baseline_none/PT1M/NEZ",
@@ -14194,10 +12982,6 @@
             "title": "IAGA WSE (66.55,33.10) baseline_none"
         },
         {
-            "id": "wtk/baseline_none/PT1M/NEZ",
-            "title": "IAGA WTK (-7.56,112.63) baseline_none"
-        },
-        {
             "id": "y01/baseline_none/PT1M/NEZ",
             "title": "IAGA Y01 (-31.80,290.71) baseline_none"
         },
@@ -14208,10 +12992,6 @@
         {
             "id": "y03/baseline_none/PT1M/NEZ",
             "title": "IAGA Y03 (-15.56,303.93) baseline_none"
-        },
-        {
-            "id": "y04/baseline_none/PT1M/NEZ",
-            "title": "IAGA Y04 (-2.59,315.79) baseline_none"
         },
         {
             "id": "y05/baseline_none/PT1M/NEZ",
@@ -14288,10 +13068,6 @@
         {
             "id": "yor/baseline_none/PT1M/NEZ",
             "title": "IAGA YOR (53.95,358.95) baseline_none"
-        },
-        {
-            "id": "yss/baseline_none/PT1M/NEZ",
-            "title": "IAGA YSS (46.95,142.72) baseline_none"
         },
         {
             "id": "zag/baseline_none/PT1M/NEZ",
