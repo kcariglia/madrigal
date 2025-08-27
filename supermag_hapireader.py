@@ -47,10 +47,10 @@ def sm_filter_data(magdata, parameters, vectortype):
     #if 'Z_geo' in parameters:
     #    magdata['Z_geo'] = magdata['Z'].apply(lambda x: x.get('geo'))
 
-    if 'mlt' in parameters:
-        magdata['mlt'] = magdata.apply(lambda row: [row['mlt'], row['mcolat']], axis=1)
+    #if 'mlt' in parameters:
+    #    magdata['mlt'] = magdata.apply(lambda row: [row['mlt'], row['mcolat']], axis=1)
         
-    allparams = ['ext','iaga','N','E','Z','mcolat']
+    allparams = ['ext','iaga','N','E','Z','mlt','mcolat']
     dropme = []
     for para in allparams:
         if para not in parameters:
@@ -545,9 +545,9 @@ def do_data_supermag(id,timemin,timemax,parameters,catalog,floc,
             #if 'N_geo' in parameters_munged: parameters_munged.remove('N_geo')
             #if 'E_geo' in parameters_munged: parameters_munged.remove('E_geo')
             #if 'Z_geo' in parameters_munged: parameters_munged.remove('Z_geo')
-            if 'mlt' in parameters_munged:
-                i=parameters_munged.index('mlt')
-                parameters_munged[i:i+1] = ['mlt','mcolat']
+            #if 'mlt' in parameters_munged:
+            #    i=parameters_munged.index('mlt')
+            #    parameters_munged[i:i+1] = ['mlt','mcolat']
         else:
             #flagstring = "&mlt&mcolat&geo&decl&sza"
             parameters_munged = ['tval','Field_Vector','mlt','mcolat','sza','decl','N','E','Z']
@@ -564,7 +564,8 @@ def do_data_supermag(id,timemin,timemax,parameters,catalog,floc,
             pass # pass when there is no valid data to parse
 
         # Massive filtering needed to match parameters requested
-        magdata=sm_filter_data(magdata, parameters, vectortype)
+        if len(magdata) > 0:
+            magdata=sm_filter_data(magdata, parameters, vectortype)
 
         magdata = magdata.to_csv(header=0,index=False,sep=',')
         magdata = csv_removekeys(magdata) # change {k:v,k:v} to just [v,v]
