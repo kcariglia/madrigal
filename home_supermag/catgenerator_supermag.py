@@ -54,7 +54,7 @@ template_xyz = {
             "type": "isotime",
             "units": "UTC"
         },
-        {"name": "Field_Vector", "type": "double", "units": "nT", "size": [3], "description": "N_geo, E_geo, Z_geo aka the N, E, Z vector components in geographic mapping", "label": ["X", "Y", "Z"]},
+        {"name": "Field_Vector", "type": "double", "units": "nT", "size": [3], "fill": "99999.0", "description": "N_geo, E_geo, Z_geo aka the N, E, Z vector components in geographic mapping", "label": ["X", "Y", "Z"]},
         {"name": "mlt", "type": "double", "units": "hours", "fill": None, "description": "The Magnetic local time, in hours"},
         {"name": "mcolat", "type": "double", "units": "degrees", "fill": None, "description": "The Magnetic colatitude, in degrees"},
         {"name": "sza", "type": "double", "units": "degrees", "fill": None, "description": "The solar zenith angle, in degrees"},
@@ -84,7 +84,7 @@ template_nez = {
             "type": "isotime",
             "units": "UTC"
         },
-        {"name": "Field_Vector", "type": "double", "units": "nT", "size": [3], "description": "N_nez, E_nez, Z_nez aka the N, E, Z vector components in magnetic mapping","label": ["N", "E", "Z"]},
+        {"name": "Field_Vector", "type": "double", "units": "nT", "size": [3], "fill": "999999.0", "description": "N_nez, E_nez, Z_nez aka the N, E, Z vector components in magnetic mapping","label": ["N", "E", "Z"]},
         {"name": "mlt", "type": "double", "units": "hours", "fill": None, "description": "The Magnetic local time, in hours"},
         {"name": "mcolat", "type": "double", "units": "degrees", "fill": None, "description": "The Magnetic colatitude, in degrees"},
         {"name": "sza", "type": "double", "units": "degrees", "fill": "0", "description": "The solar zenith angle, in degrees"},
