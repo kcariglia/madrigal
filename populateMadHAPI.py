@@ -1,5 +1,5 @@
 """
-script to generate info json records and corresponding data
+test/starter to generate info json records and corresponding data
 """
 
 import madrigal.metadata
@@ -12,6 +12,9 @@ import dateutil
 import madrigalWeb.madrigalWeb
 import time
 import pandas
+import h5py
+import numpy
+import io
 
 def get_data(id, format="csv"):
     """
@@ -21,8 +24,6 @@ def get_data(id, format="csv"):
     FIX ME: format???
     FIX ME: stream???
     """
-    # first check if info obj we want already exists. if not,
-    # generate it
     thisDataFile = os.path.join(madtest_config.HAPI_HOME, "data") + "/" + id + "." + format
     if os.path.exists(thisDataFile):
         with open(thisDataFile, "r") as f:
@@ -52,8 +53,7 @@ def generate_info_json(id, madParms):
     instData = madrigal.metadata.MadrigalInstrumentData()
     instYears = instData.getInstrumentYears(kinst)
 
-    # may want to redo this better later, more specificity by day
-    print(f"instyears {instYears}")
+    # redo this better later, more specificity by day, FIX ME
     infoStartDate = datetime.datetime(year=instYears[0],
                                       month=1,
                                       day=1,
@@ -87,7 +87,8 @@ def generate_data_isprint(startDT,
                           stream_flag=False,
                           stream=None):
     """
-    
+    generate/format madrigal data to csv style using isprint
+    caution: slow
     """
     # make sure to check whether unix time == ymdhms
 
@@ -177,15 +178,14 @@ def generate_data_pandas(startDT,
                           stream_flag=False,
                           stream=None):
     """
-    new idea: use pandas and dump to csv
+    generate/format madrigal data to csv style using pandas
     """
     # hardcode a dummy user
     user_fullname = "Madrigal HAPI User"
     user_email = "madrigal@hapi.com"
     user_affiliation = "None"
 
-    # download data from madrigal one file at a time
-    # copy logic as in get_madfile_service to avoid actually downloading stuff
+    # find data from madrigal
     madDB = madrigalWeb.madrigalWeb.MadrigalData("https://cedar.openmadrigal.org")
     matchingExps = madDB.getExperiments(kinst, startDT.year, startDT.month, startDT.day,
                                         startDT.hour, startDT.minute, startDT.second,
@@ -198,25 +198,31 @@ def generate_data_pandas(startDT,
     # filter expFileList using kindat
     expFileList = madhapi_api.filterExperimentFilesUsingKindat(expFileList, kindat)
 
-    datastr = ""
-    status = 0
+    datastr = "" # datastr can literally be treated as csv
     for thisFile in expFileList:
-        # WIP FIX ME
-        pass
+        data = io.StringIO()
 
+        # TMP ONLY: im downloading the file first for local tests
+        # in prod, do not download file, just read it directly
+        mytempfile = "hapitemp.hdf5"
 
-# want to create info record and corresponding data record for
-# test magnetometer data
-# how do we actually do this in practice? generate data on request?
-# big ol data stream for whole dset? that wont work
-# this is going to be slow
-# info responses should have dates for ENTIRE dset
+        madDB.downloadFile(thisFile.name, mytempfile, user_fullname, user_email, user_affiliation, format="hdf5")
+        
+        with h5py.File(mytempfile, "r") as f:
+            thisDF = pandas.DataFrame(numpy.array(f["Data/Table Layout"]), columns=madParms)
+            thisDF.to_csv(data)
+            datatoadd = data.getvalue()
+            datatoadd = madhapi_api.cleanDataTime(datatoadd, isprint=False) # want to do this in a smarter/more efficient way, FIX ME
 
-def populate_madtest():
-    """
-    
-    """
-    pass
+            datastr += datatoadd
 
-if __name__ == "__main__":
-    populate_madtest()
+        if stream_flag:
+            # Write then flush
+            stream.wfile.write(bytes(datastr, "utf-8"))
+            datastr = ""
+
+    if stream_flag:
+        return(datastr, stream)
+    else:
+        return(datastr)
+

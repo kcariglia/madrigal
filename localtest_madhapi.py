@@ -14,7 +14,7 @@ stop = "2020-05-14T00:00Z"
 parameters = ''
 
 
-DATA_EXISTS = True
+DATA_EXISTS = False
 
 # for now i still need to manually edit info.json to get 
 # right timestamps, currently says 2016 because of local instData

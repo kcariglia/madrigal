@@ -202,7 +202,8 @@ def getTimesOfExperiment(expList, expId):
 
 def map_parms(kinst, kindat, parameters):
     """
-    
+    HAPI parameters -> madrigal parameters
+    (will end up using same parm names anyway..)
     """
     # default value of parameters is empty string-- which corresponds to all
     # parameters originally included in file
@@ -238,7 +239,7 @@ def map_parms(kinst, kindat, parameters):
         # for our example, instParms = ['bn_nt', 'be_nt'. 'bd_nt']
         return(standardTimeParms + instParms)
     else:
-        # idk yet
+        # FIX ME
         pass
 
     # return a list of desired madrigal parm mnems
@@ -247,6 +248,7 @@ def map_parms(kinst, kindat, parameters):
 
 def generate_parm_json_headers(madParms):
     """
+    list of madrigal parameter mnems -> parameter json header
     """
     # parmsList is a list of dicts containing info about a single parameter
     parmsList = []
@@ -281,7 +283,7 @@ def generate_parm_json_headers(madParms):
         thisParmDict["units"] = madParmInfo.getParmUnits(thisParm)
         thisParmDict["fill"] = "NaN"
         thisParmDict["description"] = madParmInfo.getSimpleParmDescription(thisParm)
-        # how to handle array types?
+        # xarray for array types
         parmsList.append(thisParmDict)
         
     return(parmsList)
@@ -300,36 +302,72 @@ def madhapiID_toMadrigalID(id):
     return((kinst, kindat))
 
 
-def cleanDataTime(data):
+def cleanDataTime(data, isprint=True):
     """
     converts madrigal time parms in data str to isotime, as hapi wants
     for use with isprint
+    
+    this is really slow but i will optimize later
     """
     newdatastr = ""
-    for line in data.split('\n'):
-        thisRow = line.split()
+    if isprint:
+        for line in data.split('\n'):
+            thisRow = line.split()
 
-        if len(thisRow) < 7:
-            # no data in this row
-            continue
+            if len(thisRow) < 7:
+                # no data in this row
+                continue
 
-        # get non time data
-        thisRecord = thisRow[7:]
-        utctime = int(math.floor(float(thisRow[6])))
-        utcDT = datetime.datetime.fromtimestamp(utctime, tz=datetime.timezone.utc)
-        thisDT = datetime.datetime(year=int(thisRow[0]),
-                                   month=int(thisRow[1]),
-                                   day=int(thisRow[2]),
-                                   hour=int(thisRow[3]),
-                                   minute=int(thisRow[4]),
-                                   second=int(thisRow[5]),
-                                   tzinfo=datetime.timezone.utc)
-        # ensure dt matches utc timestamp
-        if thisDT != utcDT:
-            raise ValueError(f"mismatched dts {utcDT}, {thisDT}")
         
-        isoDT = thisDT.strftime("%Y-%m-%dT%H:%M:%SZ")
-        thisLine = isoDT + "," + ",".join(thisRecord) + "\n"
-        newdatastr += thisLine
+            # get non time data
+            thisRecord = thisRow[7:]
+            utctime = int(math.floor(float(thisRow[6])))
+            utcDT = datetime.datetime.fromtimestamp(utctime, tz=datetime.timezone.utc)
+            thisDT = datetime.datetime(year=int(thisRow[0]),
+                                    month=int(thisRow[1]),
+                                    day=int(thisRow[2]),
+                                    hour=int(thisRow[3]),
+                                    minute=int(thisRow[4]),
+                                    second=int(thisRow[5]),
+                                    tzinfo=datetime.timezone.utc)
+            # ensure dt matches utc timestamp
+            if thisDT != utcDT:
+                raise ValueError(f"mismatched dts {utcDT}, {thisDT}")
+            
+            isoDT = thisDT.strftime("%Y-%m-%dT%H:%M:%SZ")
+            thisLine = isoDT + "," + ",".join(thisRecord) + "\n"
+            newdatastr += thisLine
+    else:
+        firstline = True
+        for line in data.split('\n'):
+
+            if firstline:
+                # first line contains headers we dont want
+                firstline = False
+                continue
+
+            thisRow = line.split(',')
+
+            if len(thisRow) < 7:
+                # no data in this row
+                continue
+            # get non time data
+            thisRecord = thisRow[8:]
+            utctime = int(math.floor(float(thisRow[7])))
+            utcDT = datetime.datetime.fromtimestamp(utctime, tz=datetime.timezone.utc)
+            thisDT = datetime.datetime(year=int(thisRow[1]),
+                                    month=int(thisRow[2]),
+                                    day=int(thisRow[3]),
+                                    hour=int(thisRow[4]),
+                                    minute=int(thisRow[5]),
+                                    second=int(thisRow[6]),
+                                    tzinfo=datetime.timezone.utc)
+            # ensure dt matches utc timestamp
+            if thisDT != utcDT:
+                raise ValueError(f"mismatched dts {utcDT}, {thisDT}")
+            
+            isoDT = thisDT.strftime("%Y-%m-%dT%H:%M:%SZ")
+            thisLine = isoDT + "," + ",".join(thisRecord) + "\n"
+            newdatastr += thisLine
     return(newdatastr)
 

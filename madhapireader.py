@@ -24,8 +24,7 @@ def do_data_madrigal(
     stream=None,
 ) -> tuple[int, str]:
     """
-
-
+    do_data function like csv and supermag example
     """
     timemin = dateutil.parser.parse(timemin)
     startDT = timemin.replace(tzinfo=datetime.timezone.utc)
@@ -45,8 +44,8 @@ def do_data_madrigal(
         filterList = []
 
     if stream_flag:
-        # FIX ME: streaming data?????
-        # not tested
+        # FIX ME: streaming data
+        # not fully tested
         datastr, stream = populateMadHAPI.generate_data_isprint(startDT,
                                           endDT,
                                           kinst,
@@ -59,7 +58,7 @@ def do_data_madrigal(
         datastr = populateMadHAPI.get_data(id)
 
         if datastr is None:
-            datastr = populateMadHAPI.generate_data_isprint(startDT,
+            datastr = populateMadHAPI.generate_data_pandas(startDT,
                                           endDT,
                                           kinst,
                                           kindat,
