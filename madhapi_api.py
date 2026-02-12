@@ -294,10 +294,8 @@ def madhapiID_toMadrigalID(id):
     convert HAPI id -> Madrigal kinst/kindat
     """
 
-    # assume we do the kinst/kindat breakdown here
-    # hardcoded 4 now
-    kinst = 8309
-    kindat = 17560
+    # id is kinst_kindat
+    kinst, kindat = id.split("_")
 
     return((kinst, kindat))
 

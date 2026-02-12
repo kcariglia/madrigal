@@ -3,6 +3,7 @@ test/starter to generate info json records and corresponding data
 """
 
 import madrigal.metadata
+import madrigal.data
 import madhapi_api
 import os, os.path
 import madtest_config
@@ -15,6 +16,9 @@ import pandas
 import h5py
 import numpy
 import io
+import traceback
+
+SQLMAD = "https://192.52.65.29"
 
 def get_data(id, format="csv"):
     """
@@ -32,9 +36,9 @@ def get_data(id, format="csv"):
     else:
         return(None)
 
-def generate_info_json(id, madParms):
+def generate_info_json(id, infoStart, infoStop, madParms):
     """
-    generate info record corresponding to dset id and madParms
+    generate info record corresponding to dset id, startTime, stopTime, and madParms
     """
 
     # first check if info obj we want already exists. if not,
@@ -50,19 +54,22 @@ def generate_info_json(id, madParms):
 
     # now we want start and stop date for this dataset
     # have it match with instData years for cedar site
-    instData = madrigal.metadata.MadrigalInstrumentData()
-    instYears = instData.getInstrumentYears(kinst)
+    #instData = madrigal.metadata.MadrigalInstrumentData()
+    #instYears = instData.getInstrumentYears(kinst)
 
     # redo this better later, more specificity by day, FIX ME
-    infoStartDate = datetime.datetime(year=instYears[0],
-                                      month=1,
-                                      day=1,
-                                      tzinfo=datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
-    infoStopDate = datetime.datetime(year=instYears[-1],
-                                        month=12,
-                                        day=31,
-                                        tzinfo=datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
+    # infoStartDate = datetime.datetime(year=instYears[0],
+    #                                   month=1,
+    #                                   day=1,
+    #                                   tzinfo=datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
+    # infoStopDate = datetime.datetime(year=instYears[-1],
+    #                                     month=12,
+    #                                     day=31,
+    #                                     tzinfo=datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
     
+    infoStartDate = infoStart.strftime("%Y-%m-%dT%H:%M:%S")
+    infoStopDate = infoStop.strftime("%Y-%m-%dT%H:%M:%S")
+
     infoDict = {
         "HAPI" : madtest_config.HAPI_VERSION,
         "status" : {"code" : 1200, "message" : "OK"},
@@ -108,7 +115,7 @@ def generate_data_isprint(startDT,
 
     # download data from madrigal one file at a time
     # copy logic as in get_madfile_service to avoid actually downloading stuff
-    madDB = madrigalWeb.madrigalWeb.MadrigalData("https://cedar.openmadrigal.org")
+    madDB = madrigalWeb.madrigalWeb.MadrigalData(SQLMAD)
     matchingExps = madDB.getExperiments(kinst, startDT.year, startDT.month, startDT.day,
                                         startDT.hour, startDT.minute, startDT.second,
                                         endDT.year, endDT.month, endDT.day, endDT.hour,
@@ -186,7 +193,7 @@ def generate_data_pandas(startDT,
     user_affiliation = "None"
 
     # find data from madrigal
-    madDB = madrigalWeb.madrigalWeb.MadrigalData("https://cedar.openmadrigal.org")
+    madDB = madrigalWeb.madrigalWeb.MadrigalData(SQLMAD)
     matchingExps = madDB.getExperiments(kinst, startDT.year, startDT.month, startDT.day,
                                         startDT.hour, startDT.minute, startDT.second,
                                         endDT.year, endDT.month, endDT.day, endDT.hour,
@@ -209,6 +216,8 @@ def generate_data_pandas(startDT,
         madDB.downloadFile(thisFile.name, mytempfile, user_fullname, user_email, user_affiliation, format="hdf5")
         
         with h5py.File(mytempfile, "r") as f:
+            # what's the biggest piece of this numpy array we can read at a time
+            # if it is too big to read in one go?
             thisDF = pandas.DataFrame(numpy.array(f["Data/Table Layout"]), columns=madParms)
             thisDF.to_csv(data)
             datatoadd = data.getvalue()
@@ -225,4 +234,156 @@ def generate_data_pandas(startDT,
         return(datastr, stream)
     else:
         return(datastr)
+
+
+
+def generate_madhapi_hdf_catalog_by_category(category=14):
+    """
+    will take a very long time probably.
+
+    creates a database of:
+    filename: {startDT, stopDT, madParmList}
+
+    assumes existence/installation of sqlmad metadata db
+
+    """
+    try:
+        import sqlite3
+        import madrigal.data
+
+        os.access(os.path.join(madDB.getMetadataDir(), "metadata.db"), os.R_OK)
+    except:
+        raise ImportError("Need to install sqlmad first")
+
+    # for starters, lets do only magnetometers.
+    # magnetometers = instType 14
+    # get every file associated with every magnetometer 2000 - 2025
+    startDT = datetime.datetime(year=2000, month=1, day=1)
+    endDT = datetime.datetime(year=2025, month=12, day=31, hour=23, minute=59, second=59)
+
+    # first get list of kinsts in this inst category
+    query = f"SELECT kinst FROM instTab WHERE category={category}"
+
+    try:
+        madDB = madrigal.metadata.MadrigalDB()
+        connector = sqlite3.connect(os.path.join(madDB.getMetadataDir(), "metadata.db"))
+        cursor = connector.cursor()
+
+        result = cursor.execute(query)
+        kinstList = result.fetchall()
+
+        connector.close()
+    except:
+        traceback.print_exc()
+        connector.close()
+
+    # lets do a couple different dictionaries.
+    madhapi_fname_dict = {} # fname: startDT, endDT, parmList
+    madhapi_catalog_dict = {} # kinst: kindat: startDT, stopDT, parmSet
+    for kinst in kinstList:
+        # find data from madrigal
+        madWebDB = madrigalWeb.madrigalWeb.MadrigalData(SQLMAD)             #https://cedar.openmadrigal.org")
+        matchingExps = madWebDB.getExperiments(kinst, startDT.year, startDT.month, startDT.day,
+                                            startDT.hour, startDT.minute, startDT.second,
+                                            endDT.year, endDT.month, endDT.day, endDT.hour,
+                                            endDT.minute, endDT.second)
+        
+        # get list of all experiment files given the expList
+        expFileList = madhapi_api.getExperimentFileList(madWebDB, matchingExps, False)
+
+        # omit this part, we want all kindats
+        # filter expFileList using kindat
+        #expFileList = madhapi_api.filterExperimentFilesUsingKindat(expFileList, kindat)
+
+        if kinst not in madhapi_catalog_dict.keys():
+            madhapi_catalog_dict[kinst] = {}
+
+        for thisFile in expFileList:
+            if thisFile.name not in madhapi_fname_dict.keys():
+                madFileObj = madrigal.data.MadrigalFile(thisFile.name)
+                madMetaFileObj = madrigal.metadata.MadrigalMetaFile(os.path.join(os.path.dirname(thisFile.name), "fileTab.txt"))
+                madParmInfo = madrigal.data.MadrigalParameters()
+                thisFileStart = datetime.datetime(madFileObj.getEarliestTime())
+                thisFileEnd = datetime.datetime(madFileObj.getLatestTime())
+                # note parms are PARM CODES, not mnems
+                thisFileParms = madFileObj.getMeasuredParmList()
+                thisFileParms = [madParmInfo.getParmMnemonic(parm) for parm in thisFileParms]
+                # NOW we have mnems
+
+                madhapi_fname_dict[thisFile.name] = (thisFileStart, thisFileEnd, thisFileParms)
+
+                thisFileKindat = madMetaFileObj.getKindatByPosition()
+                if thisFileKindat not in madhapi_catalog_dict[kinst].keys():
+                    madhapi_catalog_dict[kinst][thisFileKindat] = [thisFileStart, thisFileEnd, thisFileParms]
+                else:
+                    # check start time
+                    if thisFileStart < madhapi_catalog_dict[kinst][thisFileKindat][0]:
+                        madhapi_catalog_dict[kinst][thisFileKindat][0] = thisFileStart
+                    # check end time
+                    if thisFileEnd > madhapi_catalog_dict[kinst][thisFileKindat][1]:
+                        madhapi_catalog_dict[kinst][thisFileKindat][1] = thisFileEnd
+                    # conglomerate parms
+                    madhapi_catalog_dict[kinst][thisFileKindat][2] = list(set(madhapi_catalog_dict[kinst][thisFileKindat][2] + thisFileParms))
+
+    madhapi_fname_df = pandas.DataFrame.from_dict(madhapi_fname_dict)
+    madhapi_catalog_df = pandas.DataFrame.from_dict(madhapi_catalog_dict)
+    madhapi_fname_df.to_hdf(os.path.join(madDB.getMetadataDir(), "madhapi.hdf5"), key="files")
+    madhapi_catalog_df.to_hdf(os.path.join(madDB.getMetadataDir(), "madhapi.hdf5"), key="catalog")
+
+
+def generate_madhapi_catalog_json():
+    """
+    generate the catalog.json file for the hapi server, reading
+    from the hdf5 catalog
+    """
+    madDB = madrigal.metadata.MadrigalDB()
+    madInstObj = madrigal.metadata.MadrigalInstrument(madDB)
+    madKindatObj = madrigal.metadata.MadrigalKindat(madDB)
+    madhapi_hdf_catalog = os.path.join(madDB.getMetadataDir(), "madhapi.hdf5")
+    catalogDF = pandas.read_hdf(madhapi_hdf_catalog, key="catalog") 
+    filesDF = pandas.read_hdf(madhapi_hdf_catalog, key="files")
+    catalogDict = catalogDF.to_dict() # kinst: kindat: startDT, stopDT, parmSet
+    filesDict = filesDF.to_dict() # fname: startDT, endDT, parmList
+
+    # catalog response should generate id, title, info_json
+    # id is kinst_kindat, title is "{kinst.name};{kindat.name}"
+    catalogJson = {
+        "HAPI": madtest_config.HAPI_VERSION,
+        "catalog": [],
+        "status": {
+            "code": 1200,
+            "message": "OK request successful"
+        }
+    }
+    for kinst in catalogDict.keys():
+        for kindat in catalogDict[kinst].keys():
+            thisCatalogDict = {}
+            thisCatalogDict["id"] = str(kinst) + "_" + str(kindat)
+
+            try:
+                kindatDesc = madKindatObj.getKindatDescription(kindat, kinst=kinst)
+                if kindatDesc is None:
+                    # possibly no kinst_kindat combo in db. just look for kindat only
+                    kindatDesc = madKindatObj.getKindatDescription(kindat)
+            except:
+                # possibly no kinst_kindat combo in db. just look for kindat only
+                kindatDesc = madKindatObj.getKindatDescription(kindat)
+            thisCatalogDict["title"] = madInstObj.getInstrumentName(kinst) + ", " + kindatDesc
+
+            # generate info responses
+            thisInfoFile = generate_info_json(thisCatalogDict["id"], catalogDict[kinst][kindat][0], catalogDict[kinst][kindat][1], catalogDict[kinst][kindat][2])
+
+            #with open(thisInfoFile, "r") as f:
+            #    infoDict = json.load(f)
+
+            thisCatalogDict["info"] = {
+                "startDate" : catalogDict[kinst][kindat][0],
+                "stopDate" : catalogDict[kinst][kindat][1],
+                "parameters" : catalogDict[kinst][kindat][2]
+            }
+            catalogJson["catalog"].append(thisCatalogDict)
+
+    thisCatalogFile = os.path.join(madtest_config.HAPI_HOME, "catalog.json")
+    with open(thisCatalogFile, "w") as f:
+        json.dump(catalogJson, f)
 
