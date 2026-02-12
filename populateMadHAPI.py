@@ -250,6 +250,9 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
     try:
         import sqlite3
         import madrigal.data
+        import madrigal.metadata
+
+        madDB = madrigal.metadata.MadrigalDB()
 
         os.access(os.path.join(madDB.getMetadataDir(), "metadata.db"), os.R_OK)
     except:
@@ -265,7 +268,6 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
     query = f"SELECT kinst FROM instTab WHERE category={category}"
 
     try:
-        madDB = madrigal.metadata.MadrigalDB()
         connector = sqlite3.connect(os.path.join(madDB.getMetadataDir(), "metadata.db"))
         cursor = connector.cursor()
 
