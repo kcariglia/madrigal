@@ -284,7 +284,7 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
     madhapi_catalog_dict = {} # kinst: kindat: startDT, stopDT, parmSet
     for kinst in kinstList:
         # find data from madrigal
-        madWebDB = madrigalWeb.madrigalWeb.MadrigalData(SQLMAD)             #https://cedar.openmadrigal.org")
+        madWebDB = madrigalWeb.madrigalWeb.MadrigalData("https://cedar.openmadrigal.org")
         matchingExps = madWebDB.getExperiments(kinst, startDT.year, startDT.month, startDT.day,
                                             startDT.hour, startDT.minute, startDT.second,
                                             endDT.year, endDT.month, endDT.day, endDT.hour,
@@ -301,9 +301,10 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
             madhapi_catalog_dict[kinst] = {}
 
         for thisFile in expFileList:
-            if thisFile.name not in madhapi_fname_dict.keys():
-                madFileObj = madrigal.data.MadrigalFile(thisFile.name)
-                madMetaFileObj = madrigal.metadata.MadrigalMetaFile(os.path.join(os.path.dirname(thisFile.name), "fileTab.txt"))
+            thisFileName = thisFile.name.replace("/opt/openmadrigal/madroot/experiments", "/data/cloud1/geospace/madrigal/experiments")
+            if thisFileName not in madhapi_fname_dict.keys():
+                madFileObj = madrigal.data.MadrigalFile(thisFileName)
+                madMetaFileObj = madrigal.metadata.MadrigalMetaFile(os.path.join(os.path.dirname(thisFileName), "fileTab.txt"))
                 madParmInfo = madrigal.data.MadrigalParameters()
                 thisFileStart = datetime.datetime(madFileObj.getEarliestTime())
                 thisFileEnd = datetime.datetime(madFileObj.getLatestTime())
@@ -312,7 +313,7 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
                 thisFileParms = [madParmInfo.getParmMnemonic(parm) for parm in thisFileParms]
                 # NOW we have mnems
 
-                madhapi_fname_dict[thisFile.name] = (thisFileStart, thisFileEnd, thisFileParms)
+                madhapi_fname_dict[thisFileName] = (thisFileStart, thisFileEnd, thisFileParms)
 
                 thisFileKindat = madMetaFileObj.getKindatByPosition()
                 if thisFileKindat not in madhapi_catalog_dict[kinst].keys():

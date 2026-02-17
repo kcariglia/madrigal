@@ -130,6 +130,9 @@ else:
     exit()
 print("Running in",LOCALITY,"mode, initializing for",USE_CASE)
 
+# override host name
+HOST_NAME = "192.52.65.29"
+
 ### GET AND PARSE CONFIG FILE ###
 CFG = hp.parse_config(USE_CASE)
 
