@@ -304,8 +304,14 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
         for thisFile in expFileList:
             thisFileName = thisFile.name.replace("/opt/openmadrigal/madroot/experiments", "/data/cloud1/geospace/madrigal/experiments")
             if thisFileName not in madhapi_fname_dict.keys():
-                madFileObj = madrigal.data.MadrigalFile(thisFileName)
-                madMetaFileObj = madrigal.metadata.MadrigalMetaFile(os.path.join(os.path.dirname(thisFileName), "fileTab.txt"))
+                try:
+                    madFileObj = madrigal.data.MadrigalFile(thisFileName)
+                    madMetaFileObj = madrigal.metadata.MadrigalMetaFile(os.path.join(os.path.dirname(thisFileName), "fileTab.txt"))
+                    # found this experiment
+                except:
+                    # couldn't find this experiment or file, try the next
+                    continue
+
                 madParmInfo = madrigal.data.MadrigalParameters()
                 thisFileStart = datetime.datetime(madFileObj.getEarliestTime())
                 thisFileEnd = datetime.datetime(madFileObj.getLatestTime())
