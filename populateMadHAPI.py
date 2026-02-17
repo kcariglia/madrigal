@@ -272,7 +272,8 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
         cursor = connector.cursor()
 
         result = cursor.execute(query)
-        kinstList = result.fetchall()
+        resList = result.fetchall()
+        kinstList = [item[0] for item in resList]
 
         connector.close()
     except:
