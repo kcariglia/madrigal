@@ -286,10 +286,23 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
     for kinst in kinstList:
         # find data from madrigal
         madWebDB = madrigalWeb.madrigalWeb.MadrigalData("https://cedar.openmadrigal.org")
-        matchingExps = madWebDB.getExperiments(kinst, startDT.year, startDT.month, startDT.day,
-                                            startDT.hour, startDT.minute, startDT.second,
-                                            endDT.year, endDT.month, endDT.day, endDT.hour,
-                                            endDT.minute, endDT.second)
+
+        try:
+            matchingExps = madWebDB.getExperiments(kinst, startDT.year, startDT.month, startDT.day,
+                                                startDT.hour, startDT.minute, startDT.second,
+                                                endDT.year, endDT.month, endDT.day, endDT.hour,
+                                                endDT.minute, endDT.second)
+        except:
+            # probably timed out, try again
+            try:
+                matchingExps = madWebDB.getExperiments(kinst, startDT.year, startDT.month, startDT.day,
+                                                startDT.hour, startDT.minute, startDT.second,
+                                                endDT.year, endDT.month, endDT.day, endDT.hour,
+                                                endDT.minute, endDT.second)
+            except:
+                # skip this kinst for now
+                print(f"skipping kinst {kinst}")
+                continue
         
         # get list of all experiment files given the expList
         expFileList = madhapi_api.getExperimentFileList(madWebDB, matchingExps, False)
