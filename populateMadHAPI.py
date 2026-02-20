@@ -326,8 +326,8 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
                     continue
 
                 madParmInfo = madrigal.data.MadrigalParameters()
-                thisFileStart = datetime.datetime(madFileObj.getEarliestTime())
-                thisFileEnd = datetime.datetime(madFileObj.getLatestTime())
+                thisFileStart = datetime.datetime(*madFileObj.getEarliestTime())
+                thisFileEnd = datetime.datetime(*madFileObj.getLatestTime())
                 # note parms are PARM CODES, not mnems
                 thisFileParms = madFileObj.getMeasuredParmList()
                 thisFileParms = [madParmInfo.getParmMnemonic(parm) for parm in thisFileParms]
