@@ -319,7 +319,7 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
             if thisFileName not in madhapi_fname_dict.keys():
                 try:
                     madFileObj = madrigal.data.MadrigalFile(thisFileName)
-                    madMetaFileObj = madrigal.metadata.MadrigalMetaFile(os.path.join(os.path.dirname(thisFileName), "fileTab.txt"))
+                    madMetaFileObj = madrigal.metadata.MadrigalMetaFile(initFile=os.path.join(os.path.dirname(thisFileName), "fileTab.txt"))
                     # found this experiment
                 except:
                     # couldn't find this experiment or file, try the next
