@@ -313,16 +313,17 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
 
         if kinst not in madhapi_catalog_dict.keys():
             madhapi_catalog_dict[kinst] = {}
-
+        print(f"expFileList is {len(expFileList)} files long")
         for thisFile in expFileList:
             thisFileName = thisFile.name.replace("/opt/openmadrigal/madroot/experiments", "/data/cloud1/geospace/madrigal/experiments")
             if thisFileName not in madhapi_fname_dict.keys():
                 try:
                     madFileObj = madrigal.data.MadrigalFile(thisFileName)
-                    madMetaFileObj = madrigal.metadata.MadrigalMetaFile(initFile=os.path.join(os.path.dirname(thisFileName), "fileTab.txt"))
+                    madMetaFileObj = madrigal.metadata.MadrigalMetaFile(madDB, initFile=os.path.join(os.path.dirname(thisFileName), "fileTab.txt"))
                     # found this experiment
                 except:
                     # couldn't find this experiment or file, try the next
+                    print(f"skipping file {thisFileName}")
                     continue
 
                 madParmInfo = madrigal.data.MadrigalParameters()
@@ -335,7 +336,7 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
 
                 madhapi_fname_dict[thisFileName] = (thisFileStart, thisFileEnd, thisFileParms)
 
-                thisFileKindat = madMetaFileObj.getKindatByPosition()
+                thisFileKindat = madMetaFileObj.getKindatByFilename(thisFileName)
                 if thisFileKindat not in madhapi_catalog_dict[kinst].keys():
                     madhapi_catalog_dict[kinst][thisFileKindat] = [thisFileStart, thisFileEnd, thisFileParms]
                 else:
@@ -352,6 +353,7 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
     madhapi_catalog_df = pandas.DataFrame.from_dict(madhapi_catalog_dict)
     madhapi_fname_df.to_hdf(os.path.join(madDB.getMetadataDir(), "madhapi.hdf5"), key="files")
     madhapi_catalog_df.to_hdf(os.path.join(madDB.getMetadataDir(), "madhapi.hdf5"), key="catalog")
+    print(f"done creating hdf5 catalog at {datetime.datetime.now()}")
 
 
 def generate_madhapi_catalog_json():
