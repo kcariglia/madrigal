@@ -70,12 +70,29 @@ def generate_info_json(id, infoStart, infoStop, madParms):
     infoStartDate = infoStart.strftime("%Y-%m-%dT%H:%M:%S")
     infoStopDate = infoStop.strftime("%Y-%m-%dT%H:%M:%S")
 
+    # want to be able to get extra info needed for SPASE, use id/kinst/kindat
+
+    # fname includes full path to expDir
+    #madhapi_fname_dict = {} # fname: startDT, endDT, parmList
+    #madhapi_catalog_dict = {} # kinst: kindat: startDT, stopDT, parmSet
+
     infoDict = {
+
+        # mandatory info response attributes
         "HAPI" : madtest_config.HAPI_VERSION,
         "status" : {"code" : 1200, "message" : "OK"},
         "startDate" : infoStartDate,
         "stopDate" : infoStopDate,
         "parameters" : parmJsonList
+
+        # optional info response attributes
+        #"cadence" : what if its irregular?????
+        #"description" : ?????
+        #"location" : # instrument location from metadata
+        #"resourceURL" : # use the w3id link? - only works at experiment level
+        #"creationDate" : # get this from fileTab? use os
+        #"modificationDate" : # get this from fileTab metadata
+        #"contact" : # use inst + exp pi
     }
     with open(thisInfoFile, "w") as f:
         json.dump(infoDict, f)
@@ -316,14 +333,16 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
         print(f"expFileList is {len(expFileList)} files long")
         for thisFile in expFileList:
             thisFileName = thisFile.name.replace("/opt/openmadrigal/madroot/experiments", "/data/cloud1/geospace/madrigal/experiments")
+            metaFileName = thisFile.name.replace("openmadrigal", "openmadrigal_sql")
             if thisFileName not in madhapi_fname_dict.keys():
                 try:
                     madFileObj = madrigal.data.MadrigalFile(thisFileName)
-                    madMetaFileObj = madrigal.metadata.MadrigalMetaFile(madDB, initFile=os.path.join(os.path.dirname(thisFileName), "fileTab.txt"))
+                    madMetaFileObj = madrigal.metadata.MadrigalMetaFile(madDB, initFile=os.path.join(os.path.dirname(metaFileName), "fileTab.txt"))
                     # found this experiment
                 except:
                     # couldn't find this experiment or file, try the next
-                    print(f"skipping file {thisFileName}")
+                    traceback.print_exc()
+                    print(f"filename is {thisFileName}, meta dir is {os.path.dirname(metaFileName)}")
                     continue
 
                 madParmInfo = madrigal.data.MadrigalParameters()
