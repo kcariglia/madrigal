@@ -401,6 +401,14 @@ def generate_madhapi_catalog_json():
     }
     for kinst in catalogDict.keys():
         for kindat in catalogDict[kinst].keys():
+
+            try:
+                int(kindat)
+            except:
+                # kindat is nan for some reason?
+                print(f"kindat is {kindat}")
+                continue
+
             thisCatalogDict = {}
             thisCatalogDict["id"] = str(kinst) + "_" + str(kindat)
 
