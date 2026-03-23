@@ -412,10 +412,21 @@ def generate_madhapi_catalog_json():
             except:
                 # possibly no kinst_kindat combo in db. just look for kindat only
                 kindatDesc = madKindatObj.getKindatDescription(kindat)
-            thisCatalogDict["title"] = madInstObj.getInstrumentName(kinst) + ", " + kindatDesc
+            
+            try:
+                thisCatalogDict["title"] = madInstObj.getInstrumentName(kinst) + ", " + kindatDesc
+            except:
+                continue # tmp only
 
-            # generate info responses
-            thisInfoFile = generate_info_json(thisCatalogDict["id"], catalogDict[kinst][kindat][0], catalogDict[kinst][kindat][1], catalogDict[kinst][kindat][2])
+            try:
+                # generate info responses
+                print(f"kinst is {kinst}, kindat is {kindat}")
+                print(catalogJson[kinst][kindat])
+                thisInfoFile = generate_info_json(thisCatalogDict["id"], catalogDict[kinst][kindat][0], catalogDict[kinst][kindat][1], catalogDict[kinst][kindat][2])
+            except:
+                traceback.print_exc()
+                continue
+
 
             #with open(thisInfoFile, "r") as f:
             #    infoDict = json.load(f)
@@ -427,6 +438,7 @@ def generate_madhapi_catalog_json():
             }
             catalogJson["catalog"].append(thisCatalogDict)
 
+    
     thisCatalogFile = os.path.join(madtest_config.HAPI_HOME, "catalog.json")
     with open(thisCatalogFile, "w") as f:
         json.dump(catalogJson, f)
