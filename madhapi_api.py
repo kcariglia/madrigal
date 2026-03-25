@@ -243,7 +243,8 @@ def map_parms(kinst, kindat, parameters):
         pass
 
     # return a list of desired madrigal parm mnems
-    return None
+    # assume parameter names match
+    return parameters
 
 
 def generate_parm_json_headers(madParms):

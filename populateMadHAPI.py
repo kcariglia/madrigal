@@ -76,6 +76,8 @@ def generate_info_json(id, infoStart, infoStop, madParms):
     #madhapi_fname_dict = {} # fname: startDT, endDT, parmList
     #madhapi_catalog_dict = {} # kinst: kindat: startDT, stopDT, parmSet
 
+    madInst = madrigal.metadata.MadrigalInstrument()
+
     infoDict = {
 
         # mandatory info response attributes
@@ -83,16 +85,25 @@ def generate_info_json(id, infoStart, infoStop, madParms):
         "status" : {"code" : 1200, "message" : "OK"},
         "startDate" : infoStartDate,
         "stopDate" : infoStopDate,
-        "parameters" : parmJsonList
+        "parameters" : parmJsonList,
 
         # optional info response attributes
         #"cadence" : what if its irregular?????
         #"description" : ?????
-        #"location" : # instrument location from metadata
-        #"resourceURL" : # use the w3id link? - only works at experiment level
+
+        # instrument location from metadata [lon, lat, alt]
+        "geoLocation" : [madInst.getLongitude(kinst), madInst.getLatitude(kinst), madInst.getAltitude(kinst)],
+
+        #"resourceURL" : # use the w3id link? - only works at file level
         #"creationDate" : # get this from fileTab? use os
         #"modificationDate" : # get this from fileTab metadata
-        #"contact" : # use inst + exp pi
+
+        # use inst pi
+        "contact" : madInst.getContactName(kinst),
+        "contactID" : madInst.getContactEmail(kinst),
+
+        # will need to play around with this one
+        # "maxRequestDuration"
     }
     with open(thisInfoFile, "w") as f:
         json.dump(infoDict, f)
@@ -210,7 +221,7 @@ def generate_data_pandas(startDT,
     user_affiliation = "None"
 
     # find data from madrigal
-    madDB = madrigalWeb.madrigalWeb.MadrigalData(SQLMAD)
+    madDB = madrigalWeb.madrigalWeb.MadrigalData("http://cedar.openmadrigal.org")#SQLMAD)
     matchingExps = madDB.getExperiments(kinst, startDT.year, startDT.month, startDT.day,
                                         startDT.hour, startDT.minute, startDT.second,
                                         endDT.year, endDT.month, endDT.day, endDT.hour,
@@ -226,11 +237,10 @@ def generate_data_pandas(startDT,
     for thisFile in expFileList:
         data = io.StringIO()
 
-        # TMP ONLY: im downloading the file first for local tests
-        # in prod, do not download file, just read it directly
-        mytempfile = "hapitemp.hdf5"
+        # do not download file, just read it directly
+        mytempfile = thisFile.name.replace("/opt/openmadrigal/madroot/experiments", "/data/cloud1/geospace/madrigal/experiments")#"hapitemp.hdf5"
 
-        madDB.downloadFile(thisFile.name, mytempfile, user_fullname, user_email, user_affiliation, format="hdf5")
+        #madDB.downloadFile(thisFile.name, mytempfile, user_fullname, user_email, user_affiliation, format="hdf5")
         
         with h5py.File(mytempfile, "r") as f:
             # what's the biggest piece of this numpy array we can read at a time
@@ -410,7 +420,7 @@ def generate_madhapi_catalog_json():
                 continue
 
             thisCatalogDict = {}
-            thisCatalogDict["id"] = str(kinst) + "_" + str(kindat)
+            thisCatalogDict["id"] = str(int(kinst)) + "_" + str(int(kindat))
 
             try:
                 kindatDesc = madKindatObj.getKindatDescription(kindat, kinst=kinst)
@@ -428,23 +438,19 @@ def generate_madhapi_catalog_json():
 
             try:
                 # generate info responses
-                print(f"kinst is {kinst}, kindat is {kindat}")
-                print(catalogJson[kinst][kindat])
+                #print(f"kinst is {kinst}, kindat is {kindat}")
+                print(catalogDict[kinst][kindat])
+                thisCatalogDict["info"] = {
+                    "startDate" : catalogDict[kinst][kindat][0].strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    "stopDate" : catalogDict[kinst][kindat][1].strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    "parameters" : catalogDict[kinst][kindat][2]
+                }
                 thisInfoFile = generate_info_json(thisCatalogDict["id"], catalogDict[kinst][kindat][0], catalogDict[kinst][kindat][1], catalogDict[kinst][kindat][2])
+                print(thisCatalogDict)
+                catalogJson["catalog"].append(thisCatalogDict)
             except:
                 traceback.print_exc()
                 continue
-
-
-            #with open(thisInfoFile, "r") as f:
-            #    infoDict = json.load(f)
-
-            thisCatalogDict["info"] = {
-                "startDate" : catalogDict[kinst][kindat][0],
-                "stopDate" : catalogDict[kinst][kindat][1],
-                "parameters" : catalogDict[kinst][kindat][2]
-            }
-            catalogJson["catalog"].append(thisCatalogDict)
 
     
     thisCatalogFile = os.path.join(madtest_config.HAPI_HOME, "catalog.json")

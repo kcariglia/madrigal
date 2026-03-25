@@ -55,15 +55,11 @@ def do_data_madrigal(
                                           stream_flag,
                                           stream)
     else:
-        datastr = populateMadHAPI.get_data(id)
-
-        if datastr is None:
-            datastr = populateMadHAPI.generate_data_pandas(startDT,
+        datastr = populateMadHAPI.generate_data_pandas(startDT,
                                           endDT,
                                           kinst,
                                           kindat,
-                                          madParms,
-                                          filterList)
+                                          madParms)
 
     # use id to generate info records
     # also need parms
