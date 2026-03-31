@@ -7,6 +7,8 @@ import numpy
 import datetime
 import fnmatch
 import math
+import pandas
+import os, os.path
 
 
 def getExperimentFileList(server, expList, verbose):
@@ -233,11 +235,28 @@ def map_parms(kinst, kindat, parameters):
         # lets omit recno, kinst and kindat,
         # only because they are madrigal-specific
         # time parameters are standard
-        standardTimeParms = ['year', 'month', 'day', 'hour', 'min', 'sec', 'ut1_unix']#, 'ut2_unix'] ???
-        instParmObj = madrigal.metadata.MadrigalInstrumentParameters()
-        instParms = instParmObj.getParameters(kinst)
-        # for our example, instParms = ['bn_nt', 'be_nt'. 'bd_nt']
-        return(standardTimeParms + instParms)
+        # standardTimeParms = ['year', 'month', 'day', 'hour', 'min', 'sec', 'ut1_unix']#, 'ut2_unix'] ???
+        # instParmObj = madrigal.metadata.MadrigalInstrumentParameters()
+        # instParms = instParmObj.getParameters(kinst)
+        # # for our example, instParms = ['bn_nt', 'be_nt'. 'bd_nt']
+        # return(standardTimeParms + instParms)
+    
+        # ^^ not working bc sqlite instKindatTab still problematic
+        # lets just use the db we made
+
+        madDB = madrigal.metadata.MadrigalDB()
+        madInstObj = madrigal.metadata.MadrigalInstrument(madDB)
+        madKindatObj = madrigal.metadata.MadrigalKindat(madDB)
+        madhapi_hdf_catalog = os.path.join(madDB.getMetadataDir(), "madhapi.hdf5")
+        catalogDF = pandas.read_hdf(madhapi_hdf_catalog, key="catalog") 
+        filesDF = pandas.read_hdf(madhapi_hdf_catalog, key="files")
+        catalogDict = catalogDF.to_dict() # kinst: kindat: startDT, stopDT, parmSet
+        filesDict = filesDF.to_dict() # fname: startDT, endDT, parmList
+
+        start, stop, parmSet = catalogDict[kinst][kindat]
+        return(parmSet)
+
+
     else:
         # FIX ME
         pass
