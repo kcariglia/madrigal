@@ -214,6 +214,11 @@ def map_parms(kinst, kindat, parameters):
 
     # maybe dont need kindat? instParms will always be a superset of parms potentially associated w/ data
 
+    # lets omit recno, kinst and kindat,
+    # only because they are madrigal-specific
+    # time parameters are standard
+    standardTimeParms = ['year', 'month', 'day', 'hour', 'min', 'sec', 'ut1_unix']#, 'ut2_unix'] ???
+
     if parameters == '':
         # data parameters for our test example:
         '''
@@ -232,10 +237,7 @@ def map_parms(kinst, kindat, parameters):
         BE_NT: Geodetic Eastward component of geomagnetic field in nT, units: nT
         BD_NT: Geodetic Downward component of geomagnetic field in nT, units: nT
         '''
-        # lets omit recno, kinst and kindat,
-        # only because they are madrigal-specific
-        # time parameters are standard
-        standardTimeParms = ['year', 'month', 'day', 'hour', 'min', 'sec', 'ut1_unix']#, 'ut2_unix'] ???
+        
         # instParmObj = madrigal.metadata.MadrigalInstrumentParameters()
         # instParms = instParmObj.getParameters(kinst)
         # # for our example, instParms = ['bn_nt', 'be_nt'. 'bd_nt']
@@ -251,19 +253,17 @@ def map_parms(kinst, kindat, parameters):
         catalogDF = pandas.read_hdf(madhapi_hdf_catalog, key="catalog") 
         filesDF = pandas.read_hdf(madhapi_hdf_catalog, key="files")
         catalogDict = catalogDF.to_dict() # kinst: kindat: startDT, stopDT, parmSet
-        filesDict = filesDF.to_dict() # fname: startDT, endDT, parmList
+        #filesDict = filesDF.to_dict() # fname: startDT, endDT, parmList
 
         start, stop, parmSet = catalogDict[kinst][kindat]
         return(standardTimeParms + parmSet)
 
 
     else:
-        # FIX ME
-        pass
+        # parm mnemonics are NOT different in madrigal vs hapi
 
-    # return a list of desired madrigal parm mnems
-    # assume parameter names match
-    return parameters
+        # return a list of desired madrigal parm mnems
+        return(standardTimeParms + parameters)
 
 
 def generate_parm_json_headers(madParms):

@@ -445,7 +445,8 @@ def generate_madhapi_catalog_json():
                     "stopDate" : catalogDict[kinst][kindat][1].strftime("%Y-%m-%dT%H:%M:%SZ"),
                     "parameters" : catalogDict[kinst][kindat][2]
                 }
-                thisInfoFile = generate_info_json(thisCatalogDict["id"], catalogDict[kinst][kindat][0], catalogDict[kinst][kindat][1], catalogDict[kinst][kindat][2])
+                madParms = madhapi_api.map_parms(kinst, kindat, catalogDict[kinst][kindat][2])
+                thisInfoFile = generate_info_json(thisCatalogDict["id"], catalogDict[kinst][kindat][0], catalogDict[kinst][kindat][1], madParms)
                 print(thisCatalogDict)
                 catalogJson["catalog"].append(thisCatalogDict)
             except:
