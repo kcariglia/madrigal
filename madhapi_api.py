@@ -235,7 +235,7 @@ def map_parms(kinst, kindat, parameters):
         # lets omit recno, kinst and kindat,
         # only because they are madrigal-specific
         # time parameters are standard
-        # standardTimeParms = ['year', 'month', 'day', 'hour', 'min', 'sec', 'ut1_unix']#, 'ut2_unix'] ???
+        standardTimeParms = ['year', 'month', 'day', 'hour', 'min', 'sec', 'ut1_unix']#, 'ut2_unix'] ???
         # instParmObj = madrigal.metadata.MadrigalInstrumentParameters()
         # instParms = instParmObj.getParameters(kinst)
         # # for our example, instParms = ['bn_nt', 'be_nt'. 'bd_nt']
@@ -254,7 +254,7 @@ def map_parms(kinst, kindat, parameters):
         filesDict = filesDF.to_dict() # fname: startDT, endDT, parmList
 
         start, stop, parmSet = catalogDict[kinst][kindat]
-        return(parmSet)
+        return(standardTimeParms + parmSet)
 
 
     else:
