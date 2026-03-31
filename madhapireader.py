@@ -33,16 +33,15 @@ def do_data_madrigal(
 
     kinst, kindat = madhapi_api.madhapiID_toMadrigalID(id)
 
-    # shouldnt need this part actually
     # will want kinst/kindat in order to map parms
-    # if parameters is not None:  
-    #     # map parameters to dict
-    #     madParms = madhapi_api.map_parms(kinst, kindat, parameters)
-    #     # do something abt filter list?
-    #     filterList = [] # FIX ME?
-    # else:
-    #     madParms = None
-    #     filterList = []
+    if parameters is not None:  
+        # map parameters to dict
+        madParms = madhapi_api.map_parms(kinst, kindat, parameters)
+        # do something abt filter list?
+        filterList = [] # FIX ME?
+    else:
+        madParms = None
+        filterList = []
 
     if stream_flag:
         # FIX ME: streaming data
