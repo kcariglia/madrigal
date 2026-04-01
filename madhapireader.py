@@ -9,6 +9,7 @@ import madrigalWeb.madrigalWeb
 import time
 import fnmatch
 import populateMadHAPI
+import urllib.request
 
 
 def do_data_madrigal(
@@ -55,11 +56,23 @@ def do_data_madrigal(
                                           stream_flag,
                                           stream)
     else:
-        datastr = populateMadHAPI.generate_data_pandas(startDT,
-                                          endDT,
-                                          kinst,
-                                          kindat,
-                                          madParms)
+
+        query = populateMadHAPI.SQLMAD + "/getHAPIService?"
+        query += "startDT=" + startDT.strftime("%Y-%m-%dT%H:%M:%SZ") + "&"
+        query += "endDT=" + endDT.strftime("%Y-%m-%dT%H:%M:%SZ") + "&"
+        query += "kinst=" + str(kinst) + "&"
+        query += "kindat=" + str(kindat) + "&"
+        for parm in madParms:
+            query += "madParms=" + parm + "&"
+
+        with urllib.request.urlopen(query) as q:
+            if q.status == 200:
+                datastr = q.read()
+        # datastr = populateMadHAPI.generate_data_pandas(startDT,
+        #                                   endDT,
+        #                                   kinst,
+        #                                   kindat,
+        #                                   madParms)
 
     # use id to generate info records
     # also need parms
