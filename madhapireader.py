@@ -35,14 +35,10 @@ def do_data_madrigal(
     kinst, kindat = madhapi_api.madhapiID_toMadrigalID(id)
 
     # will want kinst/kindat in order to map parms
-    if parameters is not None:  
-        # map parameters to dict
-        madParms = madhapi_api.map_parms(kinst, kindat, parameters)
-        # do something abt filter list?
-        filterList = [] # FIX ME?
-    else:
-        madParms = None
-        filterList = []
+    # map parameters to dict
+    madParms = madhapi_api.map_parms(kinst, kindat, parameters)
+    # do something abt filter list?
+    filterList = [] # FIX ME?
 
     if stream_flag:
         # FIX ME: streaming data
@@ -64,6 +60,7 @@ def do_data_madrigal(
         query += "kindat=" + str(kindat) + "&"
         for parm in madParms:
             query += "madParms=" + parm + "&"
+        print(query)
 
         with urllib.request.urlopen(query) as q:
             if q.status == 200:

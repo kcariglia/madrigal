@@ -219,7 +219,7 @@ def map_parms(kinst, kindat, parameters):
     # time parameters are standard
     standardTimeParms = ['year', 'month', 'day', 'hour', 'min', 'sec', 'ut1_unix']#, 'ut2_unix'] ???
 
-    if parameters == '':
+    if parameters == '' or parameters is None:
         # data parameters for our test example:
         '''
         YEAR: Year (universal time), units: y
@@ -255,7 +255,7 @@ def map_parms(kinst, kindat, parameters):
         catalogDict = catalogDF.to_dict() # kinst: kindat: startDT, stopDT, parmSet
         #filesDict = filesDF.to_dict() # fname: startDT, endDT, parmList
 
-        start, stop, parmSet = catalogDict[kinst][kindat]
+        start, stop, parmSet = catalogDict[int(kinst)][float(kindat)]
         return(standardTimeParms + parmSet)
 
 
@@ -320,7 +320,7 @@ def madhapiID_toMadrigalID(id):
     return((kinst, kindat))
 
 
-def cleanDataTime(data, isprint=True):
+def cleanDataTime(data, isprint=False):
     """
     converts madrigal time parms in data str to isotime, as hapi wants
     for use with isprint
