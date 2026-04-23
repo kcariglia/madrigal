@@ -263,6 +263,8 @@ def map_parms(kinst, kindat, parameters):
 
     else:
         # parm mnemonics are NOT different in madrigal vs hapi
+        if "Time" in parameters:
+            parameters = parameters.remove("Time")
 
         # return a list of desired madrigal parm mnems
         parms = [standardTimeParms + parameters]
