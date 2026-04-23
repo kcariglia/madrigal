@@ -11,6 +11,9 @@ import fnmatch
 import populateMadHAPI
 import urllib.request
 
+# tmp only
+import ssl
+
 
 def do_data_madrigal(
     id: str,
@@ -53,16 +56,18 @@ def do_data_madrigal(
                                           stream)
     else:
 
-        query = populateMadHAPI.SQLMAD + "/getHAPIService?"
+        query = populateMadHAPI.SQLMAD + "/getHAPIService.py?"
         query += "startDT=" + startDT.strftime("%Y-%m-%dT%H:%M:%SZ") + "&"
         query += "endDT=" + endDT.strftime("%Y-%m-%dT%H:%M:%SZ") + "&"
         query += "kinst=" + str(kinst) + "&"
         query += "kindat=" + str(kindat) + "&"
         for parm in madParms:
             query += "madParms=" + parm + "&"
-        print(query)
 
-        with urllib.request.urlopen(query) as q:
+        # tmp only
+        context = ssl._create_unverified_context()
+
+        with urllib.request.urlopen(query, context=context) as q:
             if q.status == 200:
                 datastr = q.read()
         # datastr = populateMadHAPI.generate_data_pandas(startDT,

@@ -256,14 +256,18 @@ def map_parms(kinst, kindat, parameters):
         #filesDict = filesDF.to_dict() # fname: startDT, endDT, parmList
 
         start, stop, parmSet = catalogDict[int(kinst)][float(kindat)]
-        return(standardTimeParms + parmSet)
+        parms = [standardTimeParms + parmSet].remove("Time")
+        parms = [parm.lower() for parm in parms]
+        return(parms)
 
 
     else:
         # parm mnemonics are NOT different in madrigal vs hapi
 
         # return a list of desired madrigal parm mnems
-        return(standardTimeParms + parameters)
+        parms = [standardTimeParms + parameters]
+        parms = [parm.lower() for parm in parms]
+        return
 
 
 def generate_parm_json_headers(madParms):
