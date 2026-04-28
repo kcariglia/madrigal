@@ -79,7 +79,7 @@ def do_data_madrigal(
     # use id to generate info records
     # also need parms
     
-    thisInfoFile = populateMadHAPI.generate_info_json(id, madParms)
+    thisInfoFile = populateMadHAPI.generate_info_json(id, startDT, endDT, madParms)
     # at this point, we have created an info record that has
     # already converted time parms as necessary (as far as metadata is concerned)
     if datastr is not None:
@@ -87,7 +87,6 @@ def do_data_madrigal(
 
     if len(datastr) == 0:
         status = 1201  # status 1200 is HAPI "OK- no data for time range"
-    print(f"status is {status} and datastr is {datastr}")
 
     return status, datastr
 

@@ -219,7 +219,7 @@ def map_parms(kinst, kindat, parameters):
     # time parameters are standard
     standardTimeParms = ['year', 'month', 'day', 'hour', 'min', 'sec', 'ut1_unix']#, 'ut2_unix'] ???
 
-    if parameters == '' or parameters is None:
+    if not parameters:
         # data parameters for our test example:
         '''
         YEAR: Year (universal time), units: y
@@ -264,12 +264,12 @@ def map_parms(kinst, kindat, parameters):
     else:
         # parm mnemonics are NOT different in madrigal vs hapi
         if "Time" in parameters:
-            parameters = parameters.remove("Time")
+            parameters.remove("Time")
 
         # return a list of desired madrigal parm mnems
-        parms = [standardTimeParms + parameters]
+        parms = standardTimeParms + parameters
         parms = [parm.lower() for parm in parms]
-        return
+        return(parms)
 
 
 def generate_parm_json_headers(madParms):
