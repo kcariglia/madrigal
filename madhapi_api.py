@@ -363,6 +363,7 @@ def cleanDataTime(data, isprint=False):
             newdatastr += thisLine
     else:
         firstline = True
+        skipped = 0
         for line in data.split('\n'):
 
             if firstline:
@@ -388,10 +389,12 @@ def cleanDataTime(data, isprint=False):
                                     tzinfo=datetime.timezone.utc)
             # ensure dt matches utc timestamp
             if thisDT != utcDT:
-                raise ValueError(f"mismatched dts {utcDT}, {thisDT}")
+                print(f"mismatched dts {utcDT}, {thisDT}")
+                skipped += 1
             
             isoDT = thisDT.strftime("%Y-%m-%dT%H:%M:%SZ")
             thisLine = isoDT + "," + ",".join(thisRecord) + "\n"
             newdatastr += thisLine
+    print(f"skipped {skipped} records")
     return(newdatastr)
 
