@@ -80,6 +80,9 @@ def do_data_madrigal(
     # also need parms
     
     thisInfoFile = populateMadHAPI.generate_info_json(id, startDT, endDT, madParms)
+
+    thisDataFile = populateMadHAPI.get_data(id, datastr)
+
     # at this point, we have created an info record that has
     # already converted time parms as necessary (as far as metadata is concerned)
     if datastr is not None:

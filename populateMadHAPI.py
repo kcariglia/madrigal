@@ -20,7 +20,7 @@ import traceback
 
 SQLMAD = "https://192.52.65.29"
 
-def get_data(id, format="csv"):
+def get_data(id, datastr, format="csv"):
     """
     assumes the data we want already exists in the 
     /data endpoint. if not, return None
@@ -29,12 +29,10 @@ def get_data(id, format="csv"):
     FIX ME: stream???
     """
     thisDataFile = os.path.join(madtest_config.HAPI_HOME, "data") + "/" + id + "." + format
-    if os.path.exists(thisDataFile):
-        with open(thisDataFile, "r") as f:
-            data = f.read()
-        return(data)
-    else:
-        return(None)
+    
+    with open(thisDataFile, "w") as f:
+        f.write(datastr)
+    return(thisDataFile)
 
 def generate_info_json(id, infoStart, infoStop, madParms):
     """
