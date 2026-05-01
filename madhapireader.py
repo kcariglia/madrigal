@@ -70,6 +70,9 @@ def do_data_madrigal(
         with urllib.request.urlopen(query, context=context) as q:
             if q.status == 200:
                 datastr = q.read()
+                datastr = str(datastr)
+
+                thisDataFile = populateMadHAPI.get_data(id, datastr)
         # datastr = populateMadHAPI.generate_data_pandas(startDT,
         #                                   endDT,
         #                                   kinst,
@@ -80,8 +83,6 @@ def do_data_madrigal(
     # also need parms
     
     thisInfoFile = populateMadHAPI.generate_info_json(id, startDT, endDT, madParms)
-
-    thisDataFile = populateMadHAPI.get_data(id, datastr)
 
     # at this point, we have created an info record that has
     # already converted time parms as necessary (as far as metadata is concerned)
