@@ -239,11 +239,12 @@ def generate_data_pandas(startDT,
         mytempfile = thisFile.name.replace("/opt/openmadrigal/madroot/experiments", "/data/cloud1/geospace/madrigal/experiments")#"hapitemp.hdf5"
 
         #madDB.downloadFile(thisFile.name, mytempfile, user_fullname, user_email, user_affiliation, format="hdf5")
+        availableParms = get_available_parms(thisFile.name, madParms)
         
         with h5py.File(mytempfile, "r") as f:
             # what's the biggest piece of this numpy array we can read at a time
             # if it is too big to read in one go?
-            thisDF = pandas.DataFrame(numpy.array(f["Data/Table Layout"]), columns=madParms)
+            thisDF = pandas.DataFrame(numpy.array(f["Data/Table Layout"]), columns=availableParms)
             thisDF.to_csv(data)
             datatoadd = data.getvalue()
             datatoadd = madhapi_api.cleanDataTime(datatoadd, isprint=False) # want to do this in a smarter/more efficient way, FIX ME
@@ -456,3 +457,19 @@ def generate_madhapi_catalog_json():
     with open(thisCatalogFile, "w") as f:
         json.dump(catalogJson, f)
 
+
+def get_available_parms(fname, requestedParms):
+    """
+    get available parms by filename. 
+
+    return intersection(available, requested)
+    """
+    madDB = madrigal.metadata.MadrigalDB()
+    madInstObj = madrigal.metadata.MadrigalInstrument(madDB)
+    madKindatObj = madrigal.metadata.MadrigalKindat(madDB)
+    madhapi_hdf_catalog = os.path.join(madDB.getMetadataDir(), "madhapi.hdf5")
+    filesDF = pandas.read_hdf(madhapi_hdf_catalog, key="files")
+    filesDict = filesDF.to_dict() # fname: startDT, endDT, parmList
+    availableParms = set(filesDict[fname][2]).intersection(set(requestedParms))
+
+    return(list(availableParms))

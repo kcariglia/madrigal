@@ -70,7 +70,7 @@ def do_data_madrigal(
         with urllib.request.urlopen(query, context=context) as q:
             if q.status == 200:
                 datastr = q.read()
-                datastr = str(datastr)
+                datastr = str(datastr).decode("utf-8")
 
                 thisDataFile = populateMadHAPI.get_data(id, datastr)
         # datastr = populateMadHAPI.generate_data_pandas(startDT,
