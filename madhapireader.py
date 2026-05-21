@@ -66,11 +66,18 @@ def do_data_madrigal(
 
         # tmp only
         context = ssl._create_unverified_context()
+        print(query)
 
         with urllib.request.urlopen(query, context=context) as q:
             if q.status == 200:
                 datastr = q.read()
                 datastr = str(datastr.decode("utf-8"))
+
+                if datastr == "":
+                   print("verified datastr is empty str")
+                   status = 1201  # status 1200 is HAPI "OK- no data for time range"
+                   datastr = "" # does it like a space better?
+                   return(1201, '')
 
                 thisDataFile = populateMadHAPI.get_data(id, datastr)
         # datastr = populateMadHAPI.generate_data_pandas(startDT,
@@ -88,9 +95,6 @@ def do_data_madrigal(
     # already converted time parms as necessary (as far as metadata is concerned)
     if datastr is not None:
         status = 1200
-
-    if len(datastr) == 0:
-        status = 1201  # status 1200 is HAPI "OK- no data for time range"
 
     return status, datastr
 

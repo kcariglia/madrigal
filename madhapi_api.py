@@ -286,7 +286,6 @@ def generate_parm_json_headers(madParms):
         "name": "Time",
         "type": "isotime",
         "units": "UTC",
-        "fill": "null",
         "length": 24
     }
     parmsList.append(timeDict)
@@ -358,7 +357,7 @@ def cleanDataTime(data, isprint=False):
             if thisDT != utcDT:
                 raise ValueError(f"mismatched dts {utcDT}, {thisDT}")
             
-            isoDT = thisDT.strftime("%Y-%m-%dT%H:%M:%SZ")
+            isoDT = thisDT.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
             thisLine = isoDT + "," + ",".join(thisRecord) + "\n"
             newdatastr += thisLine
     else:
@@ -392,7 +391,7 @@ def cleanDataTime(data, isprint=False):
                 print(f"mismatched dts {utcDT}, {thisDT}")
                 skipped += 1
             
-            isoDT = thisDT.strftime("%Y-%m-%dT%H:%M:%SZ")
+            isoDT = thisDT.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
             thisLine = isoDT + "," + ",".join(thisRecord) + "\n"
             newdatastr += thisLine
     print(f"skipped {skipped} records")

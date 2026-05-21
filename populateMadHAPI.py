@@ -28,6 +28,9 @@ def get_data(id, datastr, format="csv"):
     FIX ME: format???
     FIX ME: stream???
     """
+    if datastr == "":
+        return(None)
+
     thisDataFile = os.path.join(madtest_config.HAPI_HOME, "data") + "/" + id + "." + format
     
     with open(thisDataFile, "w") as f:
@@ -359,7 +362,7 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
                 thisFileEnd = datetime.datetime(*madFileObj.getLatestTime())
                 # note parms are PARM CODES, not mnems
                 thisFileParms = madFileObj.getMeasuredParmList()
-                thisFileParms = [madParmInfo.getParmMnemonic(parm) for parm in thisFileParms]
+                thisFileParms = sorted([madParmInfo.getParmMnemonic(parm) for parm in thisFileParms])
                 # NOW we have mnems
 
                 madhapi_fname_dict[thisFileName] = (thisFileStart, thisFileEnd, thisFileParms)
@@ -375,7 +378,7 @@ def generate_madhapi_hdf_catalog_by_category(category=14):
                     if thisFileEnd > madhapi_catalog_dict[kinst][thisFileKindat][1]:
                         madhapi_catalog_dict[kinst][thisFileKindat][1] = thisFileEnd
                     # conglomerate parms
-                    madhapi_catalog_dict[kinst][thisFileKindat][2] = list(set(madhapi_catalog_dict[kinst][thisFileKindat][2] + thisFileParms))
+                    madhapi_catalog_dict[kinst][thisFileKindat][2] = sorted(list(set(madhapi_catalog_dict[kinst][thisFileKindat][2] + thisFileParms)))
 
     madhapi_fname_df = pandas.DataFrame.from_dict(madhapi_fname_dict)
     madhapi_catalog_df = pandas.DataFrame.from_dict(madhapi_catalog_dict)
