@@ -488,7 +488,7 @@ def generate_info_from_catalog():
 
         for entry in thisCatalog["catalog"]:
             thisID = entry["id"]
-            startDT = datetime.strptime(entry["info"]["startDate"], "%Y-%m-%dT%H:%M:%SZ")
-            endDT = datetime.strptime(entry["info"]["stopDate"], "%Y-%m-%dT%H:%M:%SZ")
+            startDT = datetime.datetime.strptime(entry["info"]["startDate"], "%Y-%m-%dT%H:%M:%SZ")
+            endDT = datetime.datetime.strptime(entry["info"]["stopDate"], "%Y-%m-%dT%H:%M:%SZ")
             madParms = entry["info"]["parameters"]
             generate_info_json(thisID, startDT, endDT, madParms)
