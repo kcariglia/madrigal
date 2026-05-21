@@ -476,3 +476,19 @@ def get_available_parms(fname, requestedParms):
     availableParms = set(filesDict[fname][2]).intersection(set(requestedParms))
 
     return(list(availableParms))
+
+
+def generate_info_from_catalog():
+    """
+    generate hapi info json by iterating through catalog entries.
+    """
+    thisCatalogFile = os.path.join(madtest_config.HAPI_HOME, "catalog.json")
+    with open(thisCatalogFile, "r") as f:
+        thisCatalog = json.load(f)
+
+        for entry in thisCatalog["catalog"]:
+            thisID = entry["id"]
+            startDT = datetime.strptime(entry["info"]["startDate"], "%Y-%m-%dT%H:%M:%SZ")
+            endDT = datetime.strptime(entry["info"]["stopDate"], "%Y-%m-%dT%H:%M:%SZ")
+            madParms = entry["info"]["parameters"]
+            generate_info_json(thisID, startDT, endDT, madParms)
