@@ -320,9 +320,12 @@ def madhapiID_toMadrigalID(id):
     """
 
     # id is kinst_kindat
-    kinst, kindat = id.split("_")
-
-    return((kinst, kindat))
+    try:
+        kinst, kindat = id.split("_")
+        return((kinst, kindat))
+    except:
+        # invalid ID
+        return(None, None)
 
 
 def cleanDataTime(data, isprint=False):

@@ -1,5 +1,5 @@
 """
-docs here later
+Madrigal-HAPI reader.
 """
 
 import dateutil
@@ -36,6 +36,11 @@ def do_data_madrigal(
     endDT = timemax.replace(tzinfo=datetime.timezone.utc)
 
     kinst, kindat = madhapi_api.madhapiID_toMadrigalID(id)
+    if (not kinst) or (not kindat):
+        # invalid id
+        status = 1406  # Bad request - unknown dataset id
+        datastr = "" # does it like a space better?
+        return (status, datastr)
 
     # will want kinst/kindat in order to map parms
     # map parameters to dict
