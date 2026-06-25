@@ -1,3 +1,23 @@
+"""HAPI request parsing and response-building helpers.
+
+This module holds the logic behind the HAPI server's endpoints, factored
+out of `hapi_server.py`'s `do_GET()` so it can be tested independently:
+
+* config loading (`parse_config`, `defaultvars`) and HAPI version detection
+  (`get_hapiversion`);
+* reading and filtering dataset metadata (`fetch_info_params`,
+  `do_write_info`, `get_all_ids`);
+* request validation -- paths/tags (`clean_hapi_path`, `get_hapi_tags`),
+  time ranges (`clean_query_time`, `generic_check_error`, `compare_times`),
+  and parameters (`prep_data`, `handle_key_parameters`);
+* HAPI 2.x/3.x keyword compatibility (`check_v2_v3`);
+* date-macro expansion for `now`/`lastday`/`lasthour` (`do_info_macros`,
+  `lasthour_mod`); and
+* HTTP caching and the human-readable landing pages.
+
+Functions marked `# TESTED` have accompanying test coverage.
+"""
+
 ### FLAGS YOU MAY WANT TO CHANGE (hard-coded)
 
 noisy=False   #set True for unix command line feedback
@@ -37,6 +57,11 @@ import sys
 
 
 class defaultvars():
+    """Fallback config used when no `<mission>_config.py` file is found.
+
+    Mirrors the variables a mission config must define, defaulting to the
+    generic local-CSV reader.
+    """
     # TESTED
     #import csv_hapireader
     HAPI_HOME = 'home_csv/'
@@ -51,10 +76,17 @@ class defaultvars():
 
 def fetchdata(hapi_handler, id, timemin, timemax, parameters, mydata,
               floc, stream_flag, s):
+    """Thin wrapper that invokes a mission reader and returns `(status, data)`."""
     (status, data) = hapi_hander(id, timemin, timemax, parameters, mydata, floc, stream_flag, s)
     return (status, data)
-    
+
 def parse_config(myname):
+    """Import and validate `<myname>_config.py`, returning the config module.
+
+    Verifies the required variables exist (HAPI_HOME, api_datatype, floc,
+    hapi_handler, tags_allowed, stream_flag); exits on a malformed config.
+    Falls back to `defaultvars` (generic CSV) when no config file is found.
+    """
     # TESTED
     ### GET AND PARSE CONFIG FILE ###
     try:
@@ -99,6 +131,7 @@ def parse_config(myname):
 ### GET HAPI VERSION we need to support
 # (mostly needed for id/dataset, time.min/start, time.max/stop keywords)
 def get_hapiversion(hapi_home):
+    """Return the HAPI spec version (float) from `<hapi_home>/capabilities.json`."""
     # TESTED
     fin=open( hapi_home + 'capabilities.json','r')
     jset=json.loads(fin.read())
@@ -122,6 +155,13 @@ def get_hapiversion(hapi_home):
 ### CORE FUNCTIONS ###
 
 def fetch_info_params(id, hapihome, isFile):
+    """Load a dataset's `info` JSON, returning `(status, metadata_dict)`.
+
+    `isFile=True` treats `id` as a path; `False` treats it as a dataset id
+    resolved to `<hapihome>/info/<id>.json`. On failure returns a stub dict
+    with an empty parameter set. Normalizes `stopDate` via `lasthour_mod`
+    and guarantees a `limitduration` key (0 = no limit).
+    """
     # TESTED
     # open the info/[id].json file and return the parameter array
     # set isFile=True if 'id' is a filename, False if 'id' is actually an id
@@ -186,6 +226,13 @@ def csv_removekeys(magdata):
 ### HAPI required error and support utilities
 
 def generic_check_error(id, timemin, timemax, parameters, hapihome):
+    """Validate a data request's time range against the dataset metadata.
+
+    Returns `(errorcode, qtimemin, qtimemax)` where the times are
+    re-normalized to `%Y-%m-%dT%H:%MZ`. `errorcode` is 0 if valid, else a
+    HAPI code: 1404 (min>=max), 1405 (outside range), 1406 (unknown id),
+    1408 (too much data), or 1411 (duplicate parameters).
+    """
     # TESTED
     # does check of generic HAPI parameters
     # note we already checked that time.min (1402),time.max (1403) are 
@@ -236,6 +283,12 @@ def generic_check_error(id, timemin, timemax, parameters, hapihome):
     return(errorcode,qtimemin,qtimemax)
 
 def do_write_info(id, parameters, hapi_home, prefix ):
+    """Render a dataset's `info` JSON, filtered to `parameters`.
+
+    Keeps the first (time) parameter plus any requested names, expands date
+    macros, and optionally prefixes each line (e.g. `'#'` for a data-request
+    header block). Returns a HAPI 1500 status JSON if the file is missing.
+    """
     # TESTED
     mystr = ""
     try:
@@ -263,7 +316,10 @@ def do_write_info(id, parameters, hapi_home, prefix ):
 def get_last_modified( id, hapi_home, timemin, timemax ):
     # TESTED
     '''return the time stamp of the most recently modified file,
-    from files in $Y/$(x,name=id).$Y$m$d.csv, seconds since epoch (1970) UTC'''
+    from files in $Y/$(x,name=id).$Y$m$d.csv, seconds since epoch (1970) UTC.
+
+    Scans the per-year data directories overlapping [timemin, timemax];
+    falls back to the current time if no matching files are found.'''
     ff= hapi_home + 'data/' + id + '/'
     #print("debug: checking last modified in ",ff,timemin)
     try:
@@ -295,6 +351,8 @@ def get_last_modified( id, hapi_home, timemin, timemax ):
     return int(lastModified)  # truncate since milliseconds are not transmitted
                               
 def do_info_macros( line ):
+    """Expand quoted date macros (`"now"`, `"lastday"`, `"lastday-P1D"`,
+    `"lasthour"`) in a JSON line to concrete ISO8601 timestamps."""
     # TESTED
     ss= line.split('"now"')
     if ( len(ss)==2 ):
@@ -324,6 +382,8 @@ def do_info_macros( line ):
 
 # 'var' below does same as above but with no "" factoring in
 def do_info_macros_var( line ):
+    """Like `do_info_macros` but matches unquoted macro names, for use in
+    URL query values rather than JSON string literals."""
     # TESTED
     ss= line.split('now')
     if ( len(ss)==2 ):
@@ -383,6 +443,8 @@ def handle_customRequestOptions( query, xopts ):
     return cROset
 
 def do_parameters_map_orig( id, parameters ):
+    """Map parameter names to their column indices, always including index 0
+    (the time column). Legacy helper from the original server."""
     pp= do_get_parameters_orig(id)
     result= list( map( pp.index, parameters ) )
     if ( result[0]!=0 ):
@@ -398,6 +460,11 @@ def get_forwarded(headers):
         return None 
 
 def hapi_errors(code):
+    """Return the human-readable message for a HAPI status `code`.
+
+    Covers the 1201 OK-no-data, 1400-1413 client, and 1500/1501 server
+    codes; defaults to the 1400 user-input message for unknown codes.
+    """
     # antunes, grabs HAPI-specific errors from json object
     # works for HAPI codes 1400-1411
     #print("debug, Got error ",code)
@@ -431,6 +498,8 @@ def hapi_errors(code):
     return(msg)
 
 def lasthour_mod(timething):
+    """Resolve the literal `'lasthour'` to the current time; pass through
+    any other value unchanged."""
     # TESTED
     #print("Debug: lasthour_mod input:",timething)
     try:
@@ -444,6 +513,11 @@ def lasthour_mod(timething):
 ### Refactor of original 'do_GET()' method into subroutines
 
 def get_hapi_tags(path,tags_allowed):
+    """Extract allowed subparam tags placed before `hapi/` in the URL path.
+
+    Returns `(tags, path)` with the recognized tags filtered against
+    `tags_allowed` and the path restored to start at `hapi`.
+    """
     # TESTED
     tags=[]
     #print("debug: path=",path)
@@ -457,6 +531,8 @@ def get_hapi_tags(path,tags_allowed):
     return(tags, path)
 
 def clean_hapi_path(path):
+    """Normalize a request path: strip the query string and leading/trailing
+    slashes so it can be matched against the `hapi/...` endpoints."""
     # TESTED
     while ( path.endswith('/') ):
         path= path[:-1]
@@ -467,6 +543,10 @@ def clean_hapi_path(path):
     return(path)
 
 def check_v2_v3(query):
+    """Normalize HAPI 2.x/3.x query synonyms so downstream code sees 2.x keys.
+
+    Maps `dataset`->`id`, `start`->`time.min`, `stop`->`time.max`.
+    """
     # TESTED
     #print("Debug, calling: ",path,pp.query)
     # as part of the transition between 2.x to 3.0/3.1, allows both keys
@@ -480,6 +560,10 @@ def check_v2_v3(query):
     return(query)
 
 def truncate_data(timemin, timemax, data):
+    """Trim CSV `data` rows to those within [timemin, timemax].
+
+    Used when a reader returns more than the requested window.
+    """
     # for data that is larger than given window, truncate it
     checkstart = True
     datalines = data.split('/n')
@@ -501,6 +585,8 @@ def truncate_data(timemin, timemax, data):
         return '\n'.join(data[truestart:trueend])
 
 def compare_times(t1: str, t2: str) -> str:
+    """Compare two `%Y-%m-%dT%H:%MZ` timestamps, returning
+    `"before"`, `"after"`, or `"equal"` for t1 relative to t2."""
     # as per clean_query_time, compares formats of %Y-%m-%dT%H:%MZ
     fmt = "%Y-%m-%dT%H:%MZ"
     dt1 = datetime.datetime.strptime(t1, fmt)
@@ -513,6 +599,11 @@ def compare_times(t1: str, t2: str) -> str:
         return "equal"
 
 def clean_query_time(query):
+    """Extract and normalize `time.min`/`time.max` from the query.
+
+    Truncates to minute precision (`%Y-%m-%dT%H:%MZ`) and returns
+    `(timemin, timemax, errorcode)` -- 1402/1403 if either fails to parse.
+    """
     # TESTED
     errorcode = 0 # assume all is well
     timemin= query['time.min'][0]
@@ -534,6 +625,11 @@ def clean_query_time(query):
     return(timemin, timemax, errorcode)
 
 def get_lastModified(api_datatype, id, hapi_home, timemin, timemax):
+    """Return a Last-Modified epoch time for a data request.
+
+    For file-backed datasets, delegates to `get_last_modified`; web/AWS
+    sources use the current time.
+    """
     # TESTED, BUT STUPID NAME, TOO CLOSE TO OTHER FUNCTION
     if api_datatype == 'file':
         #print(id,timemin,timemax)
@@ -549,6 +645,13 @@ def get_lastModified(api_datatype, id, hapi_home, timemin, timemax):
     return(lastModified)
 
 def prep_data(query, hapihome, tags):
+    """Validate and assemble the parameter list for a data request.
+
+    Returns `(parameters, xopts, mydata, check_error)`. Checks that all
+    requested parameters exist (1407) and are in metadata order (1411),
+    defaults to all parameters when none are given, appends any allowed
+    `tags`, and surfaces the dataset's custom request options.
+    """
     # TESTED
     id= query['id'][0]
     (timemin, timemax, errorcode) = clean_query_time(query)
@@ -596,6 +699,7 @@ def prep_data(query, hapihome, tags):
     return(parameters, xopts, mydata, check_error)
 
 def get_all_ids(hapihome):
+    """Return the list of dataset ids declared in `<hapihome>/catalog.json`."""
     ids = []
     with open(hapihome+"catalog.json") as fin:
         data = json.load(fin)
@@ -604,6 +708,12 @@ def get_all_ids(hapihome):
     return ids
 
 def print_hapi_intropage(myname, hapihome, title=None):
+    """Build the `hapi` landing page HTML.
+
+    Lists the catalog link and, per dataset, sample info/data request links
+    (using version-appropriate keywords) and a parameter table. Appends an
+    optional `splash.html` if present.
+    """
     # TESTED
     if title == None:
         title = "Python HAPI Server"
@@ -677,6 +787,7 @@ def print_hapi_intropage(myname, hapihome, title=None):
             
         
 def print_hapi_index(myname):
+    """Return the top-level index page: `index.html` if present, else a banner."""
     # TESTED
     # echo an index.html, if it exists, otherwise post a banner
     mystr = ""
@@ -693,6 +804,8 @@ def print_hapi_index(myname):
     return mystr
 
 def fetch_modifiedsince(lms):
+    """Parse an `If-Modified-Since` header into a GMT epoch time for
+    comparison against a dataset's last-modified time."""
     # TESTED
     ###from email.utils import parsedate_tz,formatdate
     #import time
