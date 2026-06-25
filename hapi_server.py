@@ -155,6 +155,7 @@ hapi_version = hp.get_hapiversion(CFG.HAPI_HOME)
 ### CORE CLASS ###
 
 class StdoutFeedback():
+    """Request/response feedback that logs to stdout (used when `noisy`)."""
     def __init__(self):
         print('feedback is over stdout')
     def setup(self):    
@@ -172,7 +173,7 @@ class StdoutFeedback():
         print('-----')
     
 class NoFeedback():
-    # does not log anything
+    """No-op feedback for quiet deployment; does not log anything."""
     def __init__(self):
         pass
     def setup(self):
@@ -186,6 +187,7 @@ class NoFeedback():
 
     
 class GpioFeedback():
+    """Feedback that blinks a Raspberry Pi GPIO LED on each request."""
     def __init__(self,ledpin):
         print('feedback is over GPIO pin ',ledpin)
         self.ledpin=ledpin
@@ -224,9 +226,13 @@ else:
 ### HAPI required error and support utilities
 
 def send_exception( w, msg ):
+    """Write a HAPI 1500 ("Internal server error") status JSON to stream `w`.
+
+    `msg` is embedded as the status message. `w` is the response wfile.
+    """
     myjson = '{"HAPI": "3.1","status":{"code":1500,"message":"%s"} }' % msg
     w.write(bytes(myjson,"utf-8"))
-    
+
 def get_forwarded(headers):
     'This doesn''t work...'
     #for h in headers: print(h, '=', headers.get(h))
@@ -236,6 +242,11 @@ def get_forwarded(headers):
         return None 
 
 def get_last_line(s: str) -> str:
+    """Return the final non-empty line of `s`, ignoring trailing newlines.
+
+    Used to read the last data record's timestamp when bounds-checking a
+    served response against the requested time range.
+    """
     # Strip any trailing newlines (\n, \r\n, or combos)
     i = len(s) - 1
     while i >= 0 and s[i] in ('\n', '\r'):
@@ -251,10 +262,19 @@ def get_last_line(s: str) -> str:
 ### THE HAPI SERVER ###
     
 class MyHandler(BaseHTTPRequestHandler):
+    """HTTP request handler implementing the HAPI endpoints.
+
+    Routes GET requests for the HAPI paths (`hapi/capabilities`,
+    `hapi/catalog`, `hapi/info`, `hapi/data`, plus the `hapi` and `''`
+    landing pages) using the loaded mission config `CFG`. The actual data
+    is produced by the mission's reader, `CFG.hapi_handler`.
+    """
     def log_message(self, format, *args):
+        """Silence the default BaseHTTPRequestHandler stderr logging."""
         return
 
     def do_error(s,code,alt=400):
+        """Send the HAPI error JSON for `code`; ignore broken-pipe failures."""
         msg=hp.hapi_errors(code)
         # try/except here to handle cases of broken pipe
         # (in which case error can not be sent either)
@@ -264,11 +284,31 @@ class MyHandler(BaseHTTPRequestHandler):
             pass
     
     def do_HEAD(s):
+        """Respond 200 with a JSON content type and no body."""
         s.send_response(200)
         s.send_header("Content-Type", "application/json")
         s.end_headers()
 
     def do_GET(s):
+        """Dispatch a HAPI GET request and stream the response.
+
+        The method runs in two passes. First it inspects the cleaned path
+        and query to send the HTTP status line and headers (200/304/404,
+        content type, CORS, and a Last-Modified header for data requests).
+        Then it writes the body for the matched endpoint:
+
+        * `hapi/capabilities`, `hapi/catalog` -- served verbatim from the
+          JSON files under `CFG.HAPI_HOME`.
+        * `hapi/info` -- the `info/<id>.json` model, filtered to the
+          requested parameters.
+        * `hapi/data` -- validates the parameters/time range, optionally
+          writes a header block, then calls the mission reader
+          `CFG.hapi_handler(...)` and serves its CSV (truncating to the
+          requested window and mapping reader status codes to HAPI errors).
+        * `hapi` / `''` -- the human-readable intro and index pages.
+
+        Unrecognized paths return HAPI error 1400.
+        """
         #print(f"Received GET request from {s.client_address}")
         ###import time
         feedback.start(s.headers)
