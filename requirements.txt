@@ -1,0 +1,28 @@
+# Python dependencies for the Madrigal HAPI server.
+#
+# Install with:  pip install -r requirements.txt
+#
+# Dependencies are grouped by the component that needs them. The core
+# server is always required; the reader-specific packages are only needed
+# for the missions/readers you actually run.
+
+# --- Core server (hapi_server.py, hapi_parser.py) ---
+python-dateutil
+pandas
+
+# --- Madrigal reader (madhapireader.py, madhapi_api.py) ---
+# Client library for querying a remote Madrigal site over HTTPS.
+madrigalWeb
+
+# --- NetCDF / GUVI reader (netcdf_hapireader.py) ---
+xarray
+h5py
+numpy
+
+# --- SuperMAG reader (supermag_hapireader.py, supermag_api.py) ---
+certifi
+
+# --- Catalog/info generation (populateMadHAPI.py) ---
+# NOTE: this admin script imports `madrigal.data` and `madrigal.metadata`,
+# which come from a full server-side Madrigal installation (not pip). Run it
+# on a host where Madrigal is installed; it is not needed to serve data.
