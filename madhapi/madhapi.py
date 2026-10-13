@@ -136,7 +136,7 @@ def _map_parms(kinst, kindat, parameters):
         catalogIdx = catalogDF[(catalogDF['kinst'] == int(kinst)) & (catalogDF['kindat'] == int(kindat))].index
         strParms = catalogDF["parms"][catalogIdx].to_string()
         catalogParms = strParms[strParms.find("[")+1:-1].replace("'", "").split(",")
-        print(f"parms were {catalogDF["parms"][catalogIdx].to_string()} and are now {catalogParms}")
+        #print(f"DEBUG: parms were {catalogDF["parms"][catalogIdx].to_string()} and are now {catalogParms}")
         parmList = [parm.replace(" ", "") for parm in catalogParms]
         parms = standardTimeParms + parmList
         parms = [parm.lower() for parm in parms]
