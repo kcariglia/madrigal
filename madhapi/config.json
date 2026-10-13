@@ -1,0 +1,30 @@
+{
+    "path": "/hapi",
+  "ENV": {
+    "BIN_DIR": "bin"
+  },
+  "options": {
+    "DATA_DIR": "data",
+    "CACHE_DIR": "cache",
+    "LOG_DIR": "log"
+  },
+  "functions": {
+    "catalog": "madhapi.catalog",
+    "info": "madhapi.info",
+    "data": "madhapi.data"
+  },
+  "about": {
+    "id": "Madrigal",
+    "title": "Madrigal-HAPI Server",
+    "contact": "K Cariglia",
+    "contactID": "haystack-madrigal-admin@mit.edu",
+    "citation": "https://cedar.openmadrigal.org",
+    "x_SPASE": {
+      "PersonID": "spase://SMWG/Person/Katherine.Cariglia"
+    }
+  },
+  "capabilities": {
+    "outputFormats": ["csv"],
+    "catalogDepthOptions": ["dataset", "all"]
+  }
+}
